@@ -1,0 +1,177 @@
+/*Estilos de Reglas para moviles*/
+@media screen and (max-width: 768px) {
+
+body.Reglas {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('imagenes/FondoReglas.png');
+    /*esto hace que el fondo rellende todo el espacio*/
+    background-size: cover;
+    /*esto hace que el fondo este centrado*/
+    background-position: center;
+    height: 150vh;
+    color: #fff;
+}
+
+/*Esta barra contiene foto del usuario, nombre, logo de draftosaurus y logo de teknova*/
+.barra-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3f2206e3;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+    height: auto;
+    object-fit: cover;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+img.img-Usuario {
+    display: flex;
+    width: 50px;
+    
+}
+
+.Usuario {
+    flex-wrap: wrap;
+    /*los elementos hijos se alinean en una fila*/
+    display: flex;
+    /*esto centra los elementos */
+    align-items: center;
+    gap: 3px; /* espacio entre imagen y nombre */
+}
+
+.nombre-Usuario {
+    /*esto hace que no halla margen en ninguna direccion*/
+    margin: 0;
+    /*esto separa la parte inferior el nombre con el boton ajustes 10px*/
+    padding-bottom: 10px;
+    /*Define el tamaño del texto (Nombre del usario) como 20 píxeles*/
+    font-size: 10px;
+}
+
+/*boton ajustes*/
+a.ajustes {
+    font-size: 10px;
+    margin: 0;
+    width: 20px;
+    height: 10px;
+    background: #5c3109;
+    color: white;
+    border: none;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div.NobreyAjutes {
+    flex-direction: column;
+    align-items: center;
+}
+
+img.logo-central {
+    display: flex;
+    align-items: center;
+    width: 170px;
+}
+
+img.logo-teknova {
+    width: 60px;
+}
+
+/*esto es el contenedor de los tres botones*/
+.columna-botones {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 580px;
+    height: auto;
+    gap: 30px;
+    justify-content: center;
+}
+
+/*Botones*/
+a.boton-Jugar {
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    border:6px solid #724717d8;
+    background-color: #5c3109d8;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+
+a.boton-Puntuaciones {
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    border:6px solid #724717d8;
+    background-color: #5c3109d8;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+
+a.boton-Inicio {
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    border:6px solid #724717d8;
+    background-color: #5c3109d8;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/*contenedor del parrafo*/
+main {
+    width: 615px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*contenedor de Ovjetivo del juego*/
+section.container1 {
+    margin: 20px;
+    font-size: 20px;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #5c3109d8;
+    padding: 10px;
+    color: white ;
+    width: 500px;
+    height: auto;
+    border:6px solid #9c590dd8;
+    justify-content: center;
+}
+
+/*Contenedor del Parrafo (Reglas)*/
+section.container2 {
+    margin: 20px;
+    font-size: 20px;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #5c3109d8;
+    padding: 10px;
+    color: white ;
+    width: 500px;
+    height: auto;
+    border:6px solid #9c590dd8;
+    justify-content: center;
+}
+
+}

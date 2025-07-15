@@ -1,0 +1,135 @@
+/*Estilos para moviles*/
+@media screen and (max-width: 768px) {
+
+.barra-superior {
+    align-items: left;
+    padding: 20px 20px 20px;
+    }
+
+img.img-Usuario {
+    display: flex;
+    width: 50px;
+    }
+
+.Usuario {
+        display: flex;
+        align-items: center;
+        /*esto es el espacio entre elementos*/
+        gap: 10px;
+        flex-direction: row;
+    }
+
+.nombre-Usuario {
+    /*esto es el tamaño del texto (nombre del usuario)*/
+        font-size: 11px;
+    }
+
+a.ajustes {
+    /*esto es el tammaño del texto (contenido)*/
+    font-size: 11px;
+    display: flex;
+    margin: 0;
+    /*esto es el tamano del fondo del boton ajustes*/
+    width: 35px;
+    height: 15px;
+    /*color del fondo del boton*/
+    background: #5c3109;
+    /*color del texto (ajustes)*/
+    color: white;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+img.logo-central {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+
+img.logo-teknova {
+    align-items: center;
+    width: 70px;
+}
+
+main.menu-principal {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 40px;
+    gap: 70px;
+}
+
+a.boton-Registrarse {
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    background-color: #5c3109d8;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+
+a.boton-Play {
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    background-color: #5c3109d8;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+
+a.boton-Historial {
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    background-color: #5c3109d8;
+    color: white;
+    padding: 10px;
+    /*tamaño del texto*/
+    font-size: 20px;
+}
+
+a.boton-Reglas {
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    background-color: #5c3109d8;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+
+section.container {
+    font-size: 20px;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #5c3109d8;
+    padding: 10px;
+    color: white ;
+    width: 300px;
+    height: auto;
+    border:6px solid #9c590dd8;
+    justify-content: center;
+}
+
+h4.Información-del-juego {
+    font-size: 19px;
+}
+
+strong.subrallado-Draftosaurus {
+    font-size: 15px;
+}
+
+p#infogame {
+    text-align: center;
+    font-size: 15px;
+}
+
+
+}

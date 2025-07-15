@@ -1,0 +1,141 @@
+body.Partida {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('imagenes/FondoPartida.png');
+    /*esto hace que el fondo rellende todo el espacio*/
+    background-size: cover;
+    /*esto hace que el fondo este centrado*/
+    background-position: center;
+    height: 200vh;
+    color: #fff;
+}
+
+.barra-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3f2206e3;
+    padding: 10px 10px 10px 10px;
+    height: auto;
+    object-fit: cover;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+img.img-Usuario {
+    display: flex;
+    width: 85px;
+    
+}
+
+.Usuario {
+    flex-wrap: wrap;
+    /*los elementos hijos se alinean en una fila*/
+    display: flex;
+    /*esto centra los elementos */
+    align-items: center;
+    gap: 5px; /* espacio entre imagen y nombre */
+}
+
+.nombre-Usuario {
+    /*esto hace que no halla margen en ninguna direccion*/
+    margin: 0;
+    /*esto separa la parte inferior el nombre con el boton ajustes 10px*/
+    padding-bottom: 10px;
+    /*Define el tamaño del texto (Nombre del usario) como 20 píxeles*/
+    font-size: 20px;
+}
+
+a.ajustes {
+    margin: 0;
+    width: 50px;
+    height: 25px;
+    background: #5c3109;
+    color: white;
+    border: none;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div.NobreyAjutes {
+    flex-direction: column;
+    align-items: center;
+}
+
+img.logo-central {
+    display: flex;
+    align-items: center;
+    width: 500px;
+}
+
+img.logo-teknova {
+    width: 100px;
+}
+
+/*Bloque de Dinosaurios*/
+main.Bloque-Dinosaurios {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    margin: 20px;
+    margin-right: 200px;
+    margin-left: 200px;
+    gap: 20px;
+}
+
+/*Estilos de los dinosaurios*/
+img.Item-1 {
+    border: 6px solid  #8b4605;
+    background-color: #693c09;
+}
+
+img.Item-2 {
+    border: 6px solid  #8b4605;
+    background-color: #693c09;
+}
+
+img.Item-3 {
+    border: 6px solid  #8b4605;
+    background-color: #693c09;
+}
+
+img.Item-4 {
+    border: 6px solid  #8b4605;
+    background-color: #693c09;
+}
+
+img.Item-5 {
+    border: 6px solid  #8b4605;
+    background-color: #693c09;
+}
+
+img.Item-6 {
+    border: 6px solid  #8b4605;
+    background-color: #693c09;
+}
+
+main.centrado-de-contenedor1 {
+    justify-items: center;
+}
+
+/*Contenedor del mapa y del Dado*/
+div.contenedor1 {
+    width: 800px;
+    height: auto;
+    background-color: #5c3109;
+    border: 10px solid #8b4605;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+}
+
+/*esto es el elemento Dado*/
+div.DinoDado {
+    margin: 165px 120px;
+    width: 110px;
+    height: 100px;
+    border: 6px solid  #8b4605;
+    background-color: #693c09;
+}
