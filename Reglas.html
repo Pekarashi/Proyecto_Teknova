@@ -4,36 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draftosaurus - Reglas</title>
-    <link rel="stylesheet" href="Estilos-Reglas.css"/>
-    <link rel="stylesheet" href="Estilos-Reglas-Moviles.css"/>
+    <link rel="stylesheet" href="Styles_Base.css"/>
     <link rel="icon" href="imagenes/imgPestaña.png">
 </head>
 <body class="Reglas">
 <!--Menu de reglas-->
 <header class="barra-superior">
         <!--Este div usuario es la imagen y nombre del usuario junto al boton de ajustes del usuario-->
-        <div class="Usuario">
-            <img class="img-Usuario" src="imagenes/imgDino.png" alt="Foto del Usuario">
-            <div class="NombreyAjustes">
-                <h5 class="nombre-Usuario">Franco</h5>
-                <a href="Ajustes-Usuario.html" class="ajustes">Ajustes</a>
-            </div>
-        </div>
-        <!--Imagen del logo Draftosaurus-->
+    <section class="Usuario">
+        <img class="img-Usuario" src="imagenes/imgDino.png" alt="Foto del Usuario">
+        <aside class="NombreyAjustes">
+            <h5 class="nombre-Usuario">Franco</h5>
+            <a href="Ajustes.html" class="ajustes">Ajustes</a>
+        </aside>
+    </section>
         <img src="imagenes/Draftosaurusimg.png" alt="Logo Draftosaurus" class="logo-central">
-        <!--Logo de Teknova-->
         <img src="imagenes/imgTeknova.png" alt="Logo Teknova" class="logo-teknova">
 </header>
-    <!--Esto es un contenedor de botones, el centrado y tamaño-->
-    <nav class="columna-botones">
-        <!--Botones que dirigen a otros links (archivos.hmtl)-->
-        <a button href="Juego.html" class="boton-Jugar">Jugar</a> <!--Boton para comensar partida-->
-        <a button href="" class="boton-Puntuaciones">Puntuaciones</a> <!--ESTA PAGINA NO SE CREO TODABIA-->
-        <a button href="draftosaurus.html" class="boton-Inicio">volver al Inicio</a>
+
+    <nav class="columna-Breglas">
+        <a button href="Juego.html" class="botonesReglas">Jugar</a> <!--Boton para comensar partida-->
+        <a button href="" class="botonesReglas">Puntuaciones</a> <!--ESTA PAGINA NO SE CREO TODABIA-->
+        <a button href="draftosaurus.html" class="botonesReglas">volver al Inicio</a>
     </nav>
 <!--Reglas del juego-->
-<main>
-    <!--contenedor de ovjetivos-->
+<main class="Reglas">
     <section class="container1">
         <h2>Objetivo</h2>
         <p>El objetivo principal en Draftosaurus es construir el parque de dinosaurios más atractivo para los visitantes. Para lograrlo, los jugadores deben colocar estratégicamente dinosaurios en diferentes recintos de su tablero individual, teniendo en cuenta las restricciones de ubicación que cambian con cada turno. El juego implica un proceso de selección y colocación de "dinos" (meeples de dinosaurios) en los recintos, buscando maximizar los puntos de victoria al final de la partida</p>
@@ -57,14 +52,17 @@
         <li>La Isla Solitaria: si queremos conseguir los puntos , el dinosaurio que dejemos en este recinto no puede estar en ningún otro del parque.</li>
         <li>Río: no se considera un recinto del zoo pero sí puntuará con 1 punto por dinosaurio al final de la partida.</li>
     </ul>
+    </section>
+
+    <section class="container3">
         <p>¡A tener en cuenta! El T-Rex es único y especial, de ahí que por cada recinto que contenga uno de ellos nos llevaremos otro punto adicional.</p>
         <p>El dado, como he comentado, nos forzará a colocar un dinosaurio en un recinto del tablero salvo que seamos el que lo ha tirado o prefiramos descartarlo para no perder puntos. Este dado nos puede obligar a colocar dinosaurios en los recintos que se encuentren en el bosque (arriba) o en la llanura (abajo). También puede hacernos colocarlos en la zona de la derecha del río (en la zona de aseos) o a la izquierda del mismo (cerca de la cafetería). Por último, nos puede forzar a ponerlos en una zona dependiendo de como hayamos desarrollado el tablero colocándolo en un recinto que todavía tengamos vacío o en un lugar donde no haya ningún T-Rex.</p>
-        <h3>Fin de la partida</h3>
         <p>La partida de Draftosaurus finaliza al terminar la segunda ronda, cuando todos los jugadores tienen 12 dinosaurios en sus respectivos parques. En este momento, los jugadores cuentan los puntos conseguidos en cada zona del parque según se especifica en el tablero, ganando el jugador que tiene una mayor cantidad de puntos. En caso de un hipotético empate, ganará el que tenga menos T-Rex.</p>
-    <footer>
-        <!--Esto es el parrafo del pie de la pagina y Esto &copy es el icono de una c dentro de una circunferencia-->
+        <h3>Fin de la partida</h3>
+    <footer><!--Esto es el parrafo del pie de la pagina y Esto &copy es el icono de una c dentro de una circunferencia-->
         <p class="Pie-de-la-Pagina">&copy; 2025 - Proyecto de Egreso</p>
     </footer>
-    </main>
+    </section>
+</main>
 </body>
 </html>
