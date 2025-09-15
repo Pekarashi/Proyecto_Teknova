@@ -1,0 +1,67 @@
+/* Reglas */
+#Reglas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#columna-Breglas {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botones reglas */
+.botonesReglas {
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  border:6px solid #301f17;
+  background-color: #63402c;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+}
+
+/* contenedor de Objetivo del juego */
+section.container1, section.container2, section.container3 {
+  margin: 20px;
+  font-size: 20px;
+  align-items: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #63402c;
+  padding: 10px;
+  color: white ;
+  width: 100%;
+  height: auto;
+  border:6px solid #301f17;
+  justify-content: center;
+}
+/* Fin de Reglas */
+
+/*= MEDIA QUERIES PARA MOVILES =*/  /*Acomodar Todo*/
+@media screen and (max-width: 992px) {
+/*= Reglas =*/
+#columna-Breglas {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+section.container1, section.container2, section.container3 {
+    margin: 10px;
+    font-size: 15px;
+    padding: 5px;
+}
+}
+/* Fin de Reglas */

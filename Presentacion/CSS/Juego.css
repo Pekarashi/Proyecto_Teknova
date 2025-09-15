@@ -1,0 +1,365 @@
+.barra-superior{
+  position: static; 
+}
+
+.Partida {
+  margin: auto;
+  display: grid;
+}
+
+.DinoPuntos {
+  grid-area: puntos;
+  position: static;
+  margin: auto;
+  width: 20vw;           
+  height: 2vh;   
+  text-align: center;
+  border: 1vh solid #301f17;
+  background-color: #63402c;
+  color: #ffffff;
+  font-size: 15px;     
+  padding: 10px; 
+  padding-right: 60px;
+  padding-left: 60px;
+  border-radius: 10px;
+}
+
+.Sector-tablero {
+  display: grid;
+  grid-template-areas: "puntos puntos toggle" "tablero tablero toggle";
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  gap: 10px; 
+  align-items: start;
+  justify-content: center;
+  padding: 10px;
+  min-height: auto;
+}
+
+.Sector-tablero > .recintos {
+  grid-area: tablero;
+  position: static;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 5px solid #301f17;
+  margin: auto;
+  width: 60vh;
+  height: 60vh;
+  background-image: url(https://i.imgur.com/SJItKGW.png); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.toggle-contenedor {
+  grid-area: toggle;
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30dvh;
+  max-width: 160px;
+  margin-left: 100px; 
+}
+
+.recinto img.Dinos {
+    width: 80%;             
+    height: auto;            
+}
+.recintos > aside {
+  display: grid;
+  width: 5vh;
+  height: 5vh;
+}
+
+.recintos > img.Dinos {
+    width: 80%;             
+    height: auto;            
+}
+
+.recinto-1 { 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 4vh;
+  margin-left: 6vh;
+  width: 5vh;
+  height: 5vh;
+}
+
+.recinto-a, .recinto-b, .recinto-c, .recinto-d, .recinto-e, .recinto-f {
+  width: 3vh;
+  height: 3vh;
+  border: 2px solid rgb(148, 113, 18);
+}
+
+.recinto-2 {  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 15vh;
+  margin-left: 5vh;
+  width: 10vh;
+  height: 3vh;
+}
+
+.recinto-g, .recinto-h, .recinto-i {
+  border: 2px solid rgb(148, 113, 18);
+  width: 3vh;
+  height: 3vh;
+}
+
+.recinto-3 { 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 105%;
+  margin-left: 60%;
+  width: 3vh;
+  height: 3vh;
+}
+
+.recinto-j, .recinto-k, .recinto-l, .recinto-m, .recinto-n, .recinto-o {
+  border: 2px solid rgb(148, 113, 18);
+  width: 3vh;
+  height: 3vh;
+}
+
+.Rio > article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 17%;
+  width: 15vh;
+  height: 15vh;
+}
+
+.Rio > img.Dinos {
+  width: 5vh;
+  height: 5vh;
+} 
+
+.espacio-4, .espacio-5, .espacio-6 {
+  width: 15vh;
+  height: 15vh;
+} 
+
+.recinto-7 {  
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 5vh;
+  margin-left: 5vh;
+  width: 3vh;
+  height: 3vh;
+}
+
+.recinto-p {
+  border: 2px solid rgb(148, 113, 18);
+  width: 5vh;
+  height: 5vh;
+}
+
+.recinto-8 { 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 17vh;
+  margin-left:4.5vh;
+  width: 3vh;
+  height: 3vh;
+} 
+
+.recinto-q, .recinto-r, .recinto-s, .recinto-t, .recinto-u, .recinto-v {
+  width: 3vh;
+  height: 3vh;
+  border: 2px solid rgb(148, 113, 18);
+}
+
+.recinto-9 {  
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 15vh;
+  margin-left: 8.5vh;
+  width: 5vh;
+  height: 5vh;
+}
+
+.recinto-w {
+  border: 2px solid rgb(148, 113, 18);
+  width: 5vh;
+  height: 5vh;
+}
+
+dialog {
+  display: none;
+  align-items: center;
+  background-color: #4b2504;
+  margin-left: 60%;
+}
+
+.Dinos {
+  display: flex;
+  border: 10px solid #301f17;
+  background-color: #8b4605;
+  width: 40vh; 
+  height: 40vh;  
+  object-fit: cover;
+}
+
+.toggle-contenedor img {
+    max-width: 16vh;  
+    margin: auto;
+    cursor: pointer;
+}
+
+#toggleDinos2 {
+    background-color: #53300a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-size: contain;
+    top: 35dvh;
+    max-width: 100%;  
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 5px 5px 6px rgba(0,0,0,0.4);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.cerrar {
+  background-color: #ad7f59;
+}
+
+.toggle-dinos:hover {
+    background-color: #b36b23;
+    transform: scale(1.02);
+}
+
+.Dinos {
+    width: 10dvh;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background: #85420b;
+    padding: 5px;
+}
+
+.DinoDado {
+  margin: 15px;
+  width: 14dvh;
+  height: 14dvh;
+  border: 8px solid  #301f17;
+  background-color: #63402c;
+  display: flex;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+.Sector-tablero {
+  flex-direction: column;
+  grid-template-areas:
+    "puntos"
+    "tablero"
+    "toggle";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0;
+  padding: 0;
+}
+
+.DinoPuntos {
+  margin: auto;
+  width: 50vw;
+  font-size: 2vh;
+}
+
+.Sector-tablero > .recintos {
+  width: 50vh;   
+  height: 50vh;
+}
+
+.recinto-1 { 
+  margin-top: 2.5vh;
+  margin-left: 5vh;
+} 
+
+.recinto-2 {  
+  margin-top: 13vh;
+  margin-left: 4vh;
+}
+
+.recinto-3 { 
+  margin-top: 75%;
+  margin-left: 55%;
+}
+
+.Rio > article {
+  margin-top: 1.5vh;
+  margin-left: 14%;
+}
+
+.recinto-7 {  
+  margin-top: 2vh;
+  margin-left: 5vh;
+}
+
+.recinto-8 {
+  margin-top: 15vh;
+  margin-left: 3vh;
+} 
+
+.recinto-9 {
+  margin-top: 12vh;
+  margin-left: 7.5vh;
+}
+
+.toggle-contenedor {
+  justify-content: center;
+  flex-direction: row;
+  margin: auto;
+  max-width: 215px;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.toggle-contenedor img {
+  max-width: 14vh;  
+}
+
+dialog {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: 5%;
+  align-items: center;
+justify-content: center
+}
+
+#toggleDinos2 {
+  justify-content: space-around;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  top: 78%;
+  width: 55vh;
+  height: 26dvh;
+  left: 8dvh;
+}
+
+.DinoDado {
+width: 35vw;
+height: 13vh;
+}
+
+.Dinos {
+  margin: 0;
+  width: 6.5dvh;
+  height: auto;
+}
+
+#listaDinos #listaDinos2 {
+  gap: 6px;
+  display: grid;
+  margin: 10px;
+  width: 6.5dvh;
+  height: auto;
+  cursor: pointer;
+}
+}

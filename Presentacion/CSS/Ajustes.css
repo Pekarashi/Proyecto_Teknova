@@ -1,0 +1,129 @@
+/* Main ajustes*/
+#Ajustes {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #d9b38c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(60, 40, 20, 0.3);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
+}
+
+.columna-Bajustes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.columna-Bajustes a {
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    border: 3px solid #301f17;
+    background-color: #8f6d4a;
+    color: #fff;
+    padding: 10px;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.columna-Bajustes a:hover {
+    background-color: #5c3a21;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Sección editar perfil */
+#perfil {
+    width: 100%;
+    max-width: 500px;
+    padding: 5px;
+    background-color: #8f664a;
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Opciones de imágenes */
+.opciones-imagenes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.opciones-imagenes img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid #5c3a21;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.opciones-imagenes img:hover {
+    transform: scale(1.1);
+    border-color: #8b5e3c;
+}
+
+/* Input y botón */
+#nuevoNombre {
+    padding: 8px;
+    border: 2px solid #8b5e3c;
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#guardar {
+    background-color: #8b5e3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+#guardar:hover {
+    background-color: #5c3a21;
+}
+
+/*Fin de ajustes*/
+
+/*= MEDIA QUERIES PARA MOVILES =*/  /*Acomodar Todo*/
+@media screen and (max-width: 992px) {
+/*= Ajustes =*/
+.columna-Bajustes {
+    padding: 10px;
+    width: 200px;
+    height: 300px;
+    justify-content: center;
+    gap: 30px;
+}
+
+#Ajustes {
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+}
+}
+/* Fin Ajustes*/
