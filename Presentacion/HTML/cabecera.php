@@ -20,7 +20,7 @@ $imagen = isset($_SESSION['imagen_perfil']) ? $_SESSION['imagen_perfil'] : "http
             <h5 class="nombre-Usuario"><?php echo htmlspecialchars($nombre); ?></h5>
             <?php if ($usuario): ?>
                 <a href="Ajustes.php" class="ajustes">Ajustes</a>
-               
+            
             <?php else: ?>
                 <a href="login.php" class="login">Iniciar Sesión</a>
             <?php endif; ?>
