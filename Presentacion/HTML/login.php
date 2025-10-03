@@ -6,11 +6,16 @@
   <title>Iniciar Sesión</title>
   <link rel="stylesheet" href="../CSS/Styles_Base.css">
   <link rel="stylesheet" href="../CSS/Login.css">
+  <link rel="icon" href="imagenes/imgPestaña.png">
 </head>
-<?php include_once 'cabecera.php'; ?>
 <body class="inicio">
+  <!-- Cabecera -->
+  <?php include_once 'cabecera.php'; ?>
+
+  <!-- Botón toggle (si lo usás) -->
   <button class="toggle-btn" id="toggleBtn">&gt;</button>
 
+  <!-- Contenedor del login -->
   <main class="login-container">
     <form class="login-form" action="../../Negocio/validar_login.php" method="POST">
       <h2>INICIAR SESIÓN</h2>
@@ -28,9 +33,10 @@
     </form>
   </main>
 
+  <!-- Script para mostrar alertas de error -->
   <script>
     <?php if(isset($_GET['error'])): ?>
-      alert("<?php echo $_GET['error']; ?>");
+      alert("<?php echo htmlspecialchars($_GET['error']); ?>");
     <?php endif; ?>
   </script>
 </body>

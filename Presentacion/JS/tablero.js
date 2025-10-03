@@ -1,3 +1,4 @@
+
 // Tablero como array de recintos // 
 let tablero = [
 {
@@ -56,3 +57,64 @@ let tablero = [
     }
 }
 ];
+// --- FUNCIONES DE LA PARTIDA ---
+function colocarDinoEnRecinto(indiceRecinto, dino) {
+  const recinto = tablero[indiceRecinto];
+  if (recinto.puedeColocar(dino)) {
+    recinto.dinos.push(dino);
+    actualizarTablero();
+    return true;
+  }
+  return false;
+}
+
+function actualizarTablero() {
+  tablero.forEach((recinto, index) => {
+    const contenedor = document.querySelector(`.recinto-${String.fromCharCode(97 + index)}`);
+    if (contenedor) {
+      contenedor.innerHTML = ""; // limpia antes de actualizar
+      recinto.dinos.forEach(dino => {
+        const img = document.createElement("img");
+        img.src = dino.url;       // dino.url contiene la imagen real
+        img.alt = dino.nombre;    // nombre del dino
+        img.classList.add("Dinos");
+        contenedor.appendChild(img);
+      });
+    }
+  });
+}
+
+// --- LISTA DE DINOS DEL TOGGLE ---
+let dinosDisponibles = [
+  { nombre: "Dino-1", url: "https://i.imgur.com/hYrkrlG.png" },
+  { nombre: "Dino-2", url: "https://i.imgur.com/VimMp4W.png" },
+  { nombre: "Dino-3", url: "https://i.imgur.com/tumUHHf.png" },
+  { nombre: "Dino-4", url: "https://i.imgur.com/6akD1K2.png" },
+  { nombre: "Dino-5", url: "https://i.imgur.com/YR61Aub.png" },
+  { nombre: "Dino-6", url: "https://i.imgur.com/z1WjVCw.png" }
+];
+
+// --- EVENTO CLICK EN DINOS ---
+function inicializarDinosToggle() {
+  const listaDinos = document.querySelectorAll("#listaDinos img, #listaDinos2 img");
+  listaDinos.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      const dino = dinosDisponibles[index];
+      // intenta colocar en el primer recinto válido
+      let colocado = false;
+      for (let i = 0; i < tablero.length; i++) {
+        if (colocarDinoEnRecinto(i, dino)) {
+          colocado = true;
+          break;
+        }
+      }
+      if (!colocado) alert(`No se puede colocar ${dino.nombre} en ningún recinto`);
+    });
+  });
+}
+
+// --- INICIALIZAR PARTIDA ---
+document.addEventListener("DOMContentLoaded", () => {
+  inicializarDinosToggle();
+  actualizarTablero();
+});

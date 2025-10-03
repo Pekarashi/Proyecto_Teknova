@@ -18,6 +18,8 @@ $usuario = $solicitudes->login($correo, $contrasenia);
 if ($usuario instanceof Usuario) {
     $_SESSION["usuario"] = $usuario;
     $_SESSION["usuario_id"] = $usuario->getUsuarioId();
+    $_SESSION["nombre"] = $usuario->getNombre();
+    $_SESSION["imagen_perfil"] = $usuario->getImagenPerfil() ?? "https://i.imgur.com/dI9Sv1L.png"; 
     header("Location: ../Presentacion/HTML/Draftosaurus.php");
     exit();
 } else {

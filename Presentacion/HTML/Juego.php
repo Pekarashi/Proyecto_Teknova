@@ -87,7 +87,7 @@ include_once 'cabecera.php';
             <img src="https://i.imgur.com/VimMp4W.png" alt="Dinosaurio-2" class="Dinos">
             <img src="https://i.imgur.com/tumUHHf.png" alt="Dinosaurio-3" class="Dinos">
         </figure>
-        <button class="cerrar">&times;</button>
+        <button id="cerrar">&times;</button>
     </dialog>
   </article>
   <script src="../JS/Juego.js"></script>

@@ -6,13 +6,20 @@ class Usuario
     private string $nombre;
     private string $correo;
     private string $contrasenia;
+    private ?string $imagen_perfil; 
 
-    public function __construct(int $usuario_id, string $nombre, string $correo, string $contrasenia)
-    {
+    public function __construct(
+        int $usuario_id, 
+        string $nombre, 
+        string $correo, 
+        string $contrasenia, 
+        ?string $imagen_perfil = null 
+    ) {
         $this->usuario_id = $usuario_id;
         $this->nombre = $nombre;
         $this->correo = $correo;
         $this->contrasenia = $contrasenia;
+        $this->imagen_perfil = $imagen_perfil;
     }
 
     public function getUsuarioId(): int
@@ -35,6 +42,11 @@ class Usuario
         return $this->contrasenia;
     }
 
+    public function getImagenPerfil(): ?string
+    {
+        return $this->imagen_perfil;
+    }
+
     public function setNombre(string $nombre): void
     {
         $this->nombre = $nombre;
@@ -48,5 +60,10 @@ class Usuario
     public function setContrasenia(string $contrasenia): void
     {
         $this->contrasenia = $contrasenia;
+    }
+
+    public function setImagenPerfil(?string $imagen_perfil): void
+    {
+        $this->imagen_perfil = $imagen_perfil;
     }
 }
