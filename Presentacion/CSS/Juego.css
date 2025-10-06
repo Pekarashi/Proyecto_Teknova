@@ -24,6 +24,13 @@
   border-radius: 10px;
 }
 
+.recintos .Dinos {
+  width: 2vh;
+  height: 2vh;
+  background:transparent;
+  border: none;
+}
+
 .Sector-tablero {
   display: grid;
   grid-template-areas: "puntos puntos toggle" "tablero tablero toggle";
