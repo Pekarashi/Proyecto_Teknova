@@ -77,19 +77,21 @@ include_once 'cabecera.php';
     </section>
     
     <dialog id="toggleDinos2">
-        <figure class="dinos" id="listaDinos">
-            <img src="https://i.imgur.com/6akD1K2.png" alt="Dinosaurio-4" class="Dinos">
-            <img src="https://i.imgur.com/YR61Aub.png" alt="Dinosaurio-5" class="Dinos">
-            <img src="https://i.imgur.com/z1WjVCw.png" alt="Dinosaurio-6" class="Dinos">
-        </figure>
-        <figure class="dinos2" id="listaDinos2">
-            <img src="https://i.imgur.com/hYrkrlG.png" alt="Dinosaurio-1" class="Dinos">
-            <img src="https://i.imgur.com/VimMp4W.png" alt="Dinosaurio-2" class="Dinos">
-            <img src="https://i.imgur.com/tumUHHf.png" alt="Dinosaurio-3" class="Dinos">
-        </figure>
-        <button id="cerrar">&times;</button>
-    </dialog>
+    <figure class="dinos" id="listaDinos">
+        <img src="https://i.imgur.com/6akD1K2.png" alt="Dinosaurio-4" class="Dinos" data-id="4">
+        <img src="https://i.imgur.com/YR61Aub.png" alt="Dinosaurio-5" class="Dinos" data-id="5">
+        <img src="https://i.imgur.com/z1WjVCw.png" alt="Dinosaurio-6" class="Dinos" data-id="6">
+    </figure>
+    <figure class="dinos2" id="listaDinos2">
+        <img src="https://i.imgur.com/hYrkrlG.png" alt="Dinosaurio-1" class="Dinos" data-id="1">
+        <img src="https://i.imgur.com/VimMp4W.png" alt="Dinosaurio-2" class="Dinos" data-id="2">
+        <img src="https://i.imgur.com/tumUHHf.png" alt="Dinosaurio-3" class="Dinos" data-id="3">
+    </figure>
+    <button id="cerrar">&times;</button>
+</dialog>
+
   </article>
-  <script src="../JS/Juego.js"></script>
+<script src="../JS/Juego.js"></script>
+
 </body>
 </html>
