@@ -1,4 +1,3 @@
-// MAPA DE RECINTOS Y PUNTAJE BASE
 var mapa = {
   //Bosque de la Igualdad
   "recinto-a": 2,
@@ -47,7 +46,6 @@ var dinoSeleccionado = null;
 var recintosDinos = {}; // dinos colocados
 var puntosTrioFrondoso = 0;
 
-
 // FUNCIONES DE PUNTAJE
 function mostrarPuntos() {
   var puntosElemento = document.querySelector(".DinoPuntos");
@@ -55,7 +53,6 @@ function mostrarPuntos() {
     puntosElemento.textContent = "PUNTOS: " + puntos;
   }
 }
-
 
 // DADO DE IMÁGENES 
 const dado = document.getElementById("dado");
@@ -74,7 +71,6 @@ function tirarDado() {
 }
 
 if (dado) dado.addEventListener("click", tirarDado);
-
 
 // DIALOG DE DINOS 
 const toggleDinos = document.getElementById("toggleDinos");
@@ -97,16 +93,14 @@ if (btnCerrar && toggleDinos2) {
 
 // SELECCIONAR DINOSAURIO
 var dinos = document.querySelectorAll("#listaDinos .Dinos, #listaDinos2 .Dinos");
-dinos.forEach(function(dino, index) {
-  dino.dataset.id = index + 1;
+dinos.forEach(function(dino) {
   dino.addEventListener("click", function() {
     dinos.forEach(d => d.classList.remove("dino-seleccionado"));
     this.classList.add("dino-seleccionado");
     dinoSeleccionado = this;
-    console.log("Dinosaurio seleccionado ID:", this.dataset.id);
+    console.log("Dinosaurio seleccionado");
   });
 });
-
 
 // COLOCAR DINOSAURIO Y SUMAR PUNTOS
 var recintos = document.querySelectorAll(".Buscarecinto");
@@ -120,27 +114,24 @@ recintos.forEach(function(recinto) {
 
     if (!recintosDinos[recintoClase]) recintosDinos[recintoClase] = [];
 
-    const numeroDino = parseInt(dinoSeleccionado.dataset.id);
-
     // BOSQUE DE LA IGUALDAD
     const bosque = ["recinto-a","recinto-b","recinto-c","recinto-d","recinto-e","recinto-f"];
     if (bosque.includes(recintoClase)) {
       let tipoExistente = null;
       bosque.forEach(c => {
         const dinoEnRecinto = document.querySelector(`.${c} .Dinos`);
-        if(dinoEnRecinto) tipoExistente = dinoEnRecinto.dataset.tipo;
+        if (dinoEnRecinto) tipoExistente = dinoEnRecinto.dataset.tipo;
       });
 
-      if(tipoExistente && dinoSeleccionado.dataset.tipo !== tipoExistente){
+      if (tipoExistente && dinoSeleccionado.dataset.tipo !== tipoExistente) {
         recinto.classList.add("bloqueado");
-        setTimeout(()=>recinto.classList.remove("bloqueado"), 600);
         alert("Solo se permiten dinosaurios del mismo tipo en el Bosque de la Igualdad");
         return;
       }
 
       // Colocar dino
       recinto.appendChild(dinoSeleccionado);
-      recintosDinos[recintoClase].push(numeroDino);
+      recintosDinos[recintoClase].push(dinoSeleccionado);
       dinoSeleccionado.classList.remove("dino-seleccionado");
       dinoSeleccionado = null;
       puntos += mapa[recintoClase] || 0;
@@ -149,6 +140,5 @@ recintos.forEach(function(recinto) {
   });
 });
 
-// Inicializa marcador al cargar
 mostrarPuntos();
-console.log("✅ Juego.js ");
+console.log("Juego.js");
