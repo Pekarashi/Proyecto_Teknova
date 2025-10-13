@@ -1,5 +1,4 @@
 // SELECCIÓN DE MULTIJUGADOR //
-
 var btnMultijugador = document.getElementById('btnMultijugador');
 var modal = document.getElementById('modalJugadores');
 var btnCerrarModal = document.getElementById('btnCerrarModal');
