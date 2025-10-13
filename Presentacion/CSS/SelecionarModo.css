@@ -101,7 +101,7 @@ h1 {
 }
 
 .modal-contenido {
-    background-color: #f5e0c7;
+    background-color: #724c24;
     padding: 30px;
     border-radius: 15px;
     width: 90%;
@@ -118,7 +118,7 @@ h1 {
     border: 2px solid #724c24;
 }
 
-.modal .cerrar {
+.modal #btnModal {
     background-color: #c28f65;
     margin-top: 10px;
     padding: 8px 12px;
@@ -126,6 +126,7 @@ h1 {
     border-radius: 8px;
     cursor: pointer;
 }
+
 
 /*= Main INICIO MOVILES =*/ 
 @media screen and (max-width: 992px) {
@@ -168,8 +169,9 @@ h1 {
         font-size: 16px;
     }
 
-    .modal .cerrar {
+    .modal {
         width: 100%;         /* Botón cerrar adaptado */
         font-size: 16px;
     }
+
 }

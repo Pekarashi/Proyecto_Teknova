@@ -24,8 +24,8 @@ include_once 'cabecera.php';
             <label for="numJugadores">Cantidad de jugadores (2-5):</label>
             <input type="number" id="numJugadores" min="2" max="5" value="2">
             <p id="nombresJugadores"></p>
-            <button id="btnIniciar">Iniciar Juego</button>
-            <button id="btnCerrarModal" class="cerrar">Cancelar</button>
+            <button id="btnModal">Iniciar Juego</button>
+            <button id="btnModal" class="cerrar">Cancelar</button>
         </form>
     </section>
 
