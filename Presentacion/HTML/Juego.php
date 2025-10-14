@@ -77,12 +77,12 @@ include_once 'cabecera.php';
     </section>
     
     <dialog id="toggleDinos2">
-  <figure class="dinos" id="listaDinos"></figure>
-  <figure class="dinos2" id="listaDinos2"></figure>
-  <button id="cerrar">&times;</button>
-</dialog>
+      <figure class="dinos" id="listaDinos"></figure>
+      <figure class="dinos2" id="listaDinos2"></figure>
+      <button id="cerrar">&times;</button>
+    </dialog>
+</article>
 
-  </article>
 <script src="../JS/dinosaurios.js"></script>
 <script src="../JS/mostrar_dinosaurios.js"></script>
 <script src="../JS/Juego.js"></script>
