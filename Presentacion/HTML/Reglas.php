@@ -9,7 +9,7 @@
     <link rel="icon" href="imagenes/imgPestaña.png">
 </head> 
 <?php
-include_once 'autenticado.php';
+include_once '../../Negocio/autenticado.php';
 include_once 'cabecera.php';
 ?>
 <body class="Reglas">

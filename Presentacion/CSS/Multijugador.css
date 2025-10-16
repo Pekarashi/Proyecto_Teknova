@@ -1,0 +1,200 @@
+/* ==========================
+   TABLERO DEL JUGADOR
+========================== */
+.tablero-jugador {
+  margin: 20px auto;
+  display: grid;
+  grid-template-areas:
+    "puntos puntos toggle"
+    "tablero tablero toggle";
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  align-items: start;
+  justify-content: center;
+  border: 3px solid #301f17;
+  padding: 10px;
+  background-color: #f3e0d0;
+  border-radius: 15px;
+}
+
+/* PUNTOS */
+.tablero-jugador .DinoPuntos {
+  grid-area: puntos;
+  text-align: center;
+  background-color: #63402c;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 250px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+/* TABLERO DE RECINTOS */
+.tablero-jugador .recintos {
+  grid-area: tablero;
+  position: relative;
+  width: 65vh;
+  height: 65vh;
+  background-image: url(https://i.imgur.com/6Ayiv1W.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: auto;
+}
+
+/* RECINTOS GENERALES */
+.tablero-jugador .Buscarecinto {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(148, 113, 18);
+}
+
+/* -------------------------
+   RECINTOS BOSQUE DE LA IGUALDAD
+--------------------------*/
+.tablero-jugador .recinto-a { top: 7%;  left: 12%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-b { top: 12%; left: 12%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-c { top: 17%; left: 12%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-d { top: 7%;  left: 19%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-e { top: 12%; left: 19%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-f { top: 17%; left: 19%; width: 4vh; height: 3vh; }
+
+/* -------------------------
+   TRÍO FRONDOSO
+--------------------------*/
+.tablero-jugador .recinto-g { top: 40%; left: 10%; width: 3vh; height: 4vh; }
+.tablero-jugador .recinto-h { top: 40%; left: 15%; width: 3vh; height: 4vh; }
+.tablero-jugador .recinto-i { top: 40%; left: 20%; width: 3vh; height: 4vh; }
+
+/* -------------------------
+   BOSQUE CENTRAL
+--------------------------*/
+.tablero-jugador .recinto-j { top: 50%; left: 40%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-k { top: 50%; left: 45%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-l { top: 50%; left: 50%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-m { top: 55%; left: 40%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-n { top: 55%; left: 45%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-o { top: 55%; left: 50%; width: 4vh; height: 3vh; }
+
+/* -------------------------
+   RÍO
+--------------------------*/
+.tablero-jugador .espacio-4 { top: 0%; left: 40%; width: 15vh; height: 20vh; }
+.tablero-jugador .espacio-5 { top: 30%; left: 40%; width: 15vh; height: 15vh; }
+.tablero-jugador .espacio-6 { top: 76%; left: 45%; width: 15vh; height: 15vh; }
+
+/* -------------------------
+   RECINTOS IZQUIERDA
+--------------------------*/
+.tablero-jugador .recinto-p { top: 80%; left: 8%; width: 5vh; height: 5vh; }
+
+/* -------------------------
+   TRÍO DERECHO
+--------------------------*/
+.tablero-jugador .recinto-q { top: 60%; left: 10%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-r { top: 60%; left: 15%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-s { top: 60%; left: 20%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-t { top: 65%; left: 10%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-u { top: 65%; left: 15%; width: 4vh; height: 3vh; }
+.tablero-jugador .recinto-v { top: 65%; left: 20%; width: 4vh; height: 3vh; }
+
+/* -------------------------
+   RECINTO FINAL
+--------------------------*/
+.tablero-jugador .recinto-w { top: 85%; left: 15%; width: 5vh; height: 5vh; }
+
+/* ==========================
+   TOGGLE DE DINO Y DADO
+========================== */
+.tablero-jugador .toggle-contenedor {
+  grid-area: toggle;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.tablero-jugador .toggle-contenedor img {
+  max-width: 26vh;
+  cursor: pointer;
+}
+
+.tablero-jugador .DinoDado {
+  width: 17dvh;
+  height: 17dvh;
+  border: 8px solid #301f17;
+  background-color: #63402c;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================
+   MODAL SELECCIÓN DINO
+========================== */
+.tablero-jugador .toggleDinos2 {
+  display: none;
+  position: absolute;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #53300a;
+  color: white;
+  border-radius: 8px;
+  border: 2px solid #000;
+  padding: 10px;
+  z-index: 10;
+}
+
+.tablero-jugador .cerrar {
+  background-color: #ad7f59;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+/* ==========================
+   DINOS DENTRO DEL TABLERO
+========================== */
+.tablero-jugador .Dinos {
+  width: 10dvh;
+  height: auto;
+  border: 2px solid #25180b;
+  border-radius: 8px;
+  margin: 4px;
+  background: #85420b;
+  padding: 5px;
+}
+
+/* ==========================
+   MEDIA QUERY
+========================== */
+@media screen and (max-width: 992px) {
+  .tablero-jugador {
+    grid-template-areas:
+      "puntos"
+      "tablero"
+      "toggle";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+  .tablero-jugador .recintos {
+    width: 50vh;
+    height: 50vh;
+  }
+  .tablero-jugador .toggle-contenedor {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+  .tablero-jugador .toggle-contenedor img {
+    max-width: 18vh;
+  }
+}

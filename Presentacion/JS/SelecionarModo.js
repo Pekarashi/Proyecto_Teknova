@@ -1,30 +1,30 @@
-// SELECCIÓN DE MULTIJUGADOR //
-var btnMultijugador = document.getElementById('btnMultijugador');
-var modal = document.getElementById('modalJugadores');
-var btnCerrarModal = document.getElementById('btnCerrarModal');
-var numJugadoresInput = document.getElementById('numJugadores');
-var nombresDiv = document.getElementById('nombresJugadores');
-var btnIniciar = document.getElementById('btnIniciar');
+const btnMultijugador = document.getElementById('btnMultijugador');
+const modal = document.getElementById('modalJugadores');
+const btnCerrarModal = document.getElementById('btnCerrarModal');
+const numJugadoresInput = document.getElementById('numJugadores');
+const nombresDiv = document.getElementById('nombresJugadores');
+const btnIniciar = document.getElementById('btnIniciar');
 
-// Abrir modal al hacer click en Multijugador //
+// Abrir modal
 btnMultijugador.addEventListener("click", function() {
     modal.style.display = "flex";
     generarInputsNombres();
 });
-// Cerrar modal //
+
+// Cerrar modal
 btnCerrarModal.addEventListener("click", function() {
     modal.style.display = "none";
 });
-// Cambiar cantidad de jugadores genera inputs automáticamente //
-numJugadoresInput.addEventListener("change", function() {
-    generarInputsNombres();
-});
-// GENERAR INPUTS DE NOMBRES //
+
+// Cambiar cantidad de jugadores genera inputs automáticamente
+numJugadoresInput.addEventListener("change", generarInputsNombres);
+
+// Generar inputs de nombres
 function generarInputsNombres() {
-    var num = Math.min(+numJugadoresInput.value, 5); // máximo 5 jugadores //
+    let num = Math.min(+numJugadoresInput.value, 5);
     nombresDiv.innerHTML = "";
-    for(var i=1; i<=num; i++) {
-        var input = document.createElement("input");
+    for (let i = 1; i <= num; i++) {
+        let input = document.createElement("input");
         input.type = "text";
         input.placeholder = "Jugador " + i;
         input.id = "nombreJugador" + i;
@@ -32,14 +32,30 @@ function generarInputsNombres() {
         nombresDiv.appendChild(document.createElement("br"));
     }
 }
-// INICIAR PARTIDA MULTIJUGADOR //
+
+// Iniciar partida
 btnIniciar.addEventListener("click", function() {
-    var num = Math.min(+numJugadoresInput.value, 5); 
+    let num = Math.min(+numJugadoresInput.value, 5);
     if(num < 2) return alert("Debe haber entre 2 y 5 jugadores.");
-    
-    var jugadores = [];
-    for(var i=1; i<=num; i++)
-        jugadores.push(document.getElementById("nombreJugador"+i).value || "Jugador "+i);
-    // Redirigir a la página multijugador //
-    window.location.href = "MultiJugador.html";
+
+    let jugadores = [];
+    for (let i = 1; i <= num; i++) {
+        let nombre = document.getElementById("nombreJugador" + i).value.trim();
+        if(!nombre) nombre = "Jugador " + i;
+        jugadores.push(nombre);
+    }
+
+    // Crear form dinámico para enviar al PHP
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = "../../Negocio/crear_partida.php"; // ruta al PHP que crea la partida
+
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "jugadores";
+    input.value = JSON.stringify(jugadores);
+
+    form.appendChild(input);
+    document.body.appendChild(form);
+    form.submit();
 });

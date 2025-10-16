@@ -101,9 +101,9 @@ var dinos = document.querySelectorAll("#listaDinos .Dinos, #listaDinos2 .Dinos")
 
 dinos.forEach(function(dino) {
   dino.addEventListener("click", function() {
-    dinos.forEach(d => d.classList.remove("dino-seleccionado")); // Quitamos selección de todos
-    this.classList.add("dino-seleccionado");                     // Marcamos el dino clickeado
-    dinoSeleccionado = this;                                     // Guardamos cuál está seleccionado
+    dinos.forEach(d => d.classList.remove("dino-seleccionado")); // Quita selección de todos
+    this.classList.add("dino-seleccionado");                     // Marca el dino clickeado
+    dinoSeleccionado = this;                                     // Guarda cuál está seleccionado
     console.log("Dinosaurio seleccionado");                     // Solo para depurar
   });
 });

@@ -10,7 +10,7 @@
     
 </head>
 <?php
-include_once 'autenticado.php';
+include_once '../../Negocio/autenticado.php';
 include_once 'cabecera.php';
 ?>
 <body class="Historial">

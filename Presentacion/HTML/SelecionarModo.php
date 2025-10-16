@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../CSS/SelecionarModo.css"/>
 </head>
 <?php
-include_once 'autenticado.php';
+include_once '../../Negocio/autenticado.php';
 include_once 'cabecera.php';
 ?>
 <body>
@@ -18,17 +18,18 @@ include_once 'cabecera.php';
         <button id="btnMultijugador" class="boton">Multijugador</button>
     </div>
     
-    <section id="modalJugadores" class="modal">
-        <form class="modal-contenido">
-            <h2>Multijugador</h2>
-            <label for="numJugadores">Cantidad de jugadores (2-5):</label>
-            <input type="number" id="numJugadores" min="2" max="5" value="2">
-            <p id="nombresJugadores"></p>
-            <button id="btnModal">Iniciar Juego</button>
-            <button id="btnModal" class="cerrar">Cancelar</button>
-        </form>
-    </section>
+   <section id="modalJugadores" class="modal">
+    <form class="modal-contenido" onsubmit="return false;">
+        <h2>Multijugador</h2>
+        <label for="numJugadores">Cantidad de jugadores (2-5):</label>
+        <input type="number" id="numJugadores" min="2" max="5" value="2">
+        <p id="nombresJugadores"></p>
 
-    <script src="../JS/SelecionarModo.js"></script>
+        <button type="button" id="btnIniciar">Iniciar Juego</button>
+        <button type="button" id="btnCerrarModal" class="cerrar">Cancelar</button>
+    </form>
+</section>
+
+<script src="../JS/SelecionarModo.js"></script>
 </body>
 </html>
