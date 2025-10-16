@@ -9,7 +9,7 @@
 </head>
 <?php
 include_once '../../Negocio/autenticado.php';
-include_once 'cabecera.php';
+include_once '../../Negocio/cabecera.php';
 ?>
 <body>
     <div class="container">

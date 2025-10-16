@@ -10,7 +10,7 @@
 </head> 
 <?php
 include_once '../../Negocio/autenticado.php';
-include_once 'cabecera.php';
+include_once '../../Negocio/cabecera.php';
 ?>
 <body class="Reglas">
     <nav id="columna-Breglas">

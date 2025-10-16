@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../CSS/Login.css">
 </head>
 <?php
-include_once 'cabecera.php';
+include_once '../../Negocio/cabecera.php';
 ?>
 <body class="login-body">
     

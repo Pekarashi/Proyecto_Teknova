@@ -1,5 +1,5 @@
 /* ==========================
-   TABLERO DEL JUGADOR
+   TABLERO DEL JUGADOR MULTIJUGADOR
 ========================== */
 .tablero-jugador {
   margin: 20px auto;
@@ -36,10 +36,6 @@
   position: relative;
   width: 65vh;
   height: 65vh;
-  background-image: url(https://i.imgur.com/6Ayiv1W.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
   margin: auto;
 }
 
@@ -105,96 +101,3 @@
    RECINTO FINAL
 --------------------------*/
 .tablero-jugador .recinto-w { top: 85%; left: 15%; width: 5vh; height: 5vh; }
-
-/* ==========================
-   TOGGLE DE DINO Y DADO
-========================== */
-.tablero-jugador .toggle-contenedor {
-  grid-area: toggle;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.tablero-jugador .toggle-contenedor img {
-  max-width: 26vh;
-  cursor: pointer;
-}
-
-.tablero-jugador .DinoDado {
-  width: 17dvh;
-  height: 17dvh;
-  border: 8px solid #301f17;
-  background-color: #63402c;
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ==========================
-   MODAL SELECCIÓN DINO
-========================== */
-.tablero-jugador .toggleDinos2 {
-  display: none;
-  position: absolute;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background-color: #53300a;
-  color: white;
-  border-radius: 8px;
-  border: 2px solid #000;
-  padding: 10px;
-  z-index: 10;
-}
-
-.tablero-jugador .cerrar {
-  background-color: #ad7f59;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  border-radius: 5px;
-}
-
-/* ==========================
-   DINOS DENTRO DEL TABLERO
-========================== */
-.tablero-jugador .Dinos {
-  width: 10dvh;
-  height: auto;
-  border: 2px solid #25180b;
-  border-radius: 8px;
-  margin: 4px;
-  background: #85420b;
-  padding: 5px;
-}
-
-/* ==========================
-   MEDIA QUERY
-========================== */
-@media screen and (max-width: 992px) {
-  .tablero-jugador {
-    grid-template-areas:
-      "puntos"
-      "tablero"
-      "toggle";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 10px;
-  }
-  .tablero-jugador .recintos {
-    width: 50vh;
-    height: 50vh;
-  }
-  .tablero-jugador .toggle-contenedor {
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-  }
-  .tablero-jugador .toggle-contenedor img {
-    max-width: 18vh;
-  }
-}

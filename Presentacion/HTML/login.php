@@ -10,7 +10,7 @@
 </head>
 <body class="inicio">
   <!-- Cabecera -->
-  <?php include_once 'cabecera.php'; ?>
+  <?php include_once '../../Negocio/cabecera.php'; ?>
 
   <!-- Botón toggle (si lo usás) -->
   <button class="toggle-btn" id="toggleBtn">&gt;</button>

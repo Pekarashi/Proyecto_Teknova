@@ -1,7 +1,7 @@
 <?php
 include_once('../../Datos/conexion.php');
 include_once '../../Negocio/autenticado.php';
-include_once 'cabecera.php';
+include_once '../../Negocio/cabecera.php';
 
 $id_partida = $_GET['id_partida'] ?? 0;
 
@@ -17,6 +17,7 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
     <title>Draftosaurus Multijugador</title>
     <link rel="stylesheet" href="../CSS/Styles_Base.css">
     <link rel="stylesheet" href="../CSS/Multijugador.css">
+    <link rel="stylesheet" href="../CSS/Juego.css">
 </head>
 <body class="Partida">
 
