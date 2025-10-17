@@ -1,3 +1,10 @@
+--Crear la base de datos (si no existe)
+CREATE DATABASE IF NOT EXISTS draftosaurus
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
+
+-- 2️ Seleccionar la base de datos
+USE draftosaurus;
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
