@@ -17,7 +17,6 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
     <title>Draftosaurus Multijugador</title>
     <link rel="stylesheet" href="../CSS/Styles_Base.css">
     <link rel="stylesheet" href="../CSS/Multijugador.css">
-    <link rel="stylesheet" href="../CSS/Juego.css">
 </head>
 <body class="Partida">
 
@@ -99,7 +98,7 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
     <?php endforeach; ?>
 </article>
 <script src="../JS/dinosaurios.js"></script>
-<script src="../JS/mostrar_dinosaurios.js"></script>
+<script src="../JS/mostrar_dinosaurios_multijugador.js"></script>
 <script src="../JS/multijugador_juego.js"></script>
 </body>
 </html>

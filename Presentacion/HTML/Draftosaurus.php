@@ -25,7 +25,7 @@ include_once '../../Negocio/cabecera.php';
         <article class="container">
             <h4 class="Información-del-juego">Información del juego</h4>
             <p id="infogame">
-                <strong>Draftosaurus</strong> 
+                <strong>Draftosaurus00000</strong> 
                 Es un juego de mesa familiar en el que los jugadores construyen su propio parque de dinosaurios.
                 El objetivo principal es atraer la mayor cantidad de visitantes organizando los dinosaurios en distintos recintos, cada uno con reglas específicas para su colocación.
                 Se trata de un juego rápido y sencillo, ideal para 2 a 5 jugadores a partir de 8 años, con partidas que duran aproximadamente 15 minutos.
