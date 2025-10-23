@@ -20,10 +20,6 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
 </head>
 <body class="Partida">
 
-<header>
-    <h1>Partida Multijugador</h1>
-</header>
-
 <article class="tableros-container">
     <?php foreach($jugadores as $jugador): ?>
         <section class="tablero-jugador" data-jugador-id="<?= $jugador['jugador_id'] ?>">
