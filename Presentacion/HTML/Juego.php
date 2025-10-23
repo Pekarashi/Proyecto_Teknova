@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../CSS/Juego.css">
 </head>
 <?php
-include_once 'autenticado.php';
-include_once 'cabecera.php';
+include_once '../../Negocio/autenticado.php';
+include_once '../../Negocio/cabecera.php';
 ?>
 <body class="Partida">
   <article class="Sector-tablero">
@@ -17,9 +17,9 @@ include_once 'cabecera.php';
     <section class="recintos"> 
       <aside> 
         <section class="recinto-1">
-          <article class="Buscarecinto recinto-a"></article>
-          <article class="Buscarecinto recinto-b"></article>
-          <article class="Buscarecinto recinto-c"></article>
+          <article class="Buscarecinto  recinto-a"></article>
+          <article class="Buscarecinto  recinto-b"></article>
+          <article class="Buscarecinto  recinto-c"></article>
           <article class="Buscarecinto  recinto-d"></article>
           <article class="Buscarecinto  recinto-e"></article>
           <article class="Buscarecinto  recinto-f"></article>

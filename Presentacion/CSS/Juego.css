@@ -1,3 +1,10 @@
+/*=============================
+=   JUEGO.CSS LIMPIO (1P)
+=   Solo contiene estilos del modo un jugador.
+=   Se eliminaron referencias o estructuras que se superponen con Multijugador.
+==============================*/
+
+/* Estilos generales del tablero del juego local */
 .barra-superior{
   position: static; 
 }

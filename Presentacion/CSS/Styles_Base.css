@@ -82,8 +82,8 @@ body {
 .logo-central {
   display: flex;
   align-items: center;
-  width: 34rem;
-  height: 6rem;
+  width: 39rem;
+  height: 7rem;
 }
 
 .logo-teknova {
@@ -194,6 +194,10 @@ main {
 
 
 @media screen and (max-width: 992px) {
+.logo-central {
+  width: 50%;
+  height: auto;
+}
 
 .barra-superior {
   padding: 1%;
@@ -209,7 +213,7 @@ main {
 }
 
 .img-Usuario {
-  width: 3.5rem;
+  width: 4rem;
   height: auto;
 }
 
