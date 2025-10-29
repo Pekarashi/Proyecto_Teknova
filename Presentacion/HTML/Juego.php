@@ -17,9 +17,9 @@ include_once '../../Negocio/cabecera.php';
     <section class="recintos"> 
       <aside> 
         <section class="recinto-1">
-          <article class="Buscarecinto  recinto-a"></article>
-          <article class="Buscarecinto  recinto-b"></article>
-          <article class="Buscarecinto  recinto-c"></article>
+          <article class="Buscarecinto recinto-a"></article>
+          <article class="Buscarecinto recinto-b"></article>
+          <article class="Buscarecinto recinto-c"></article>
           <article class="Buscarecinto  recinto-d"></article>
           <article class="Buscarecinto  recinto-e"></article>
           <article class="Buscarecinto  recinto-f"></article>
@@ -84,7 +84,7 @@ include_once '../../Negocio/cabecera.php';
 </article>
 
 <script src="../JS/dinosaurios.js"></script>
-<script src="../JS/mostrar_dinosaurios.js"></script>
+<script src="../JS/mostrar_dinosaurios_solitario.js"></script>
 <script src="../JS/Juego.js"></script>
 
 </body>

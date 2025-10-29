@@ -1,17 +1,11 @@
-/*=============================
-=   MULTIJUGADOR.CSS LIMPIO
-=   Solo contiene estilos del modo multijugador.
-=   Se eliminaron elementos generales (barra superior, body, etc.)
-=   Mantiene estilos del tablero, recintos y UI específicos de multijugador.
-==============================*/
-
 .tablero-jugador {
+   display: flex;
    width: 100%;
-   max-width: 1020px;
+   max-width: 60dvw;
    margin: 23px auto;
    padding: 12px;
-   background: #655343;
-   border: 4px solid #301f17;
+   background: #aa693be0;
+   border: 4px solid #1a110c;
    border-radius: 12px;
    position: relative;
    box-sizing: border-box;
@@ -19,10 +13,10 @@
 
 .tablero-jugador .recintos {
    position: relative;      
-   width: 75vh;
-   height: 75vh;
+   width: 70dvh;
+   height: 70dvh;
    max-width: 100%;
-   margin: 25px 150px 25px 98px;
+   margin: 25px;
    background-image: url("https://i.imgur.com/6Ayiv1W.png");
    background-repeat: no-repeat;
    background-size: contain;
@@ -67,9 +61,9 @@
 .tablero-jugador .recinto-n { top: 77%; left: 20%; width: 4vh; height: 4vh; }
 .tablero-jugador .recinto-o { top: 82.1%; left: 20%; width: 4vh; height: 4vh; }
 /* Rio */
-.tablero-jugador .espacio-4 { top: 0%; left: 44%; width: 14vh; height: 23vh; }
-.tablero-jugador .espacio-5 { top: 33.5%; left: 44%; width: 12vh; height: 23vh; }
-.tablero-jugador .espacio-6 { top: 67%; left: 44%; width: 17vh; height: 22.5vh; }
+.tablero-jugador .espacio-4 { border-color: rgb(148 113 18 / 0%); top: 0%; left: 44%; width: 14vh; height: 23vh; }
+.tablero-jugador .espacio-5 { border-color: rgb(148 113 18 / 0%); top: 33.5%; left: 44%; width: 12vh; height: 23vh; }
+.tablero-jugador .espacio-6 { border-color: rgb(148 113 18 / 0%); top: 67%; left: 44%; width: 17vh; height: 22.5vh; }
 /* Resinto 7*/
 .tablero-jugador .recinto-p { top: 9%; left: 80%; width: 5vh; height: 5vh; }
 /* Resinto 8*/
@@ -100,10 +94,20 @@
    z-index: 20;
 }
 
+.toggle-contenedor {
+   grid-area: toggle;
+   position: static;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 50px;
+   margin-top: 19dvh;
+   max-width: 160px;
+   margin-left: 65px;
+}
+
 .tablero-jugador .DinoDado {
-   position: absolute;
-   right: 200px;
-   bottom: 100px;
+   position: relative;
    width: 15vh;
    height: 15vh;
    display: flex;
@@ -118,9 +122,7 @@
 }
 
 .tablero-jugador .toggleDinos {
-   position: absolute;
-   left: 680px;
-   bottom: 290px;
+   position: relative;
    max-width: 11dvw;
    z-index: 30;
 }
@@ -128,8 +130,10 @@
 .toggleDinos2{
    background-color: #5c3a21;
    position: absolute;
-   left: 680px;
-   bottom: 150px;
+   align-items: center;
+   right: 5px;
+   left: 520px;
+   bottom: 170px;
    z-index: 30;
 }
 
@@ -143,6 +147,103 @@ img.Dinos{
    padding: 5px;
 }
 
+.Buscarecinto > .Dinos {
+    width: 100%;
+    background: #452a1a3d;
+    border: 0;
+}
+
 .dinos, .dinos2{
    margin: auto;
+}
+
+@media screen and (max-width: 992px) {
+
+.tablero-jugador {
+   flex-direction: column;
+   max-width: max-content;
+   height: auto;
+   margin: 23px auto;
+}
+
+.DinoPuntos {
+   font-size: 34px;
+}
+
+.tablero-jugador .recintos {    
+   width: 29dvh;
+   height: 29dvh;
+   margin: 15px;
+}
+
+/* Resinto 1*/
+.tablero-jugador .recinto-a { top: 5%;  left: 12%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-b { top: 11.5%; left: 12%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-c { top: 18%; left: 12%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-d { top: 5%;  left: 19%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-e { top: 11.5%; left: 19%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-f { top: 18%; left: 19%; width: 2vh; height: 2vh; }
+/* Resinto 2*/
+.tablero-jugador .recinto-g { top: 39%; left: 9%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-h { top: 39%; left: 15.5%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-i { top: 39%; left: 22.2%; width: 2vh; height: 2vh; }
+/* Resinto 3*/
+.tablero-jugador .recinto-j { top: 71.1%; left: 14%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-k { top: 78%; left: 14%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-l { top: 84.6%; left: 14%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-m { top: 71.1%; left: 21%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-n { top: 78%; left: 21%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-o { top: 84.6%; left: 21%; width: 2vh; height: 2vh; }
+/* Rio */
+.tablero-jugador .espacio-4 { border-color: rgba(148, 113, 18, 0);top: 0%; left: 44%; width: 6vh; height: 10vh; }
+.tablero-jugador .espacio-5 { border-color: rgba(148, 113, 18, 0);top: 33.5%; left: 39%; width: 6vh; height: 10vh; }
+.tablero-jugador .espacio-6 { border-color: rgba(148, 113, 18, 0);top: 67%; left: 44%; width: 8vh; height: 9.5vh; }
+/* Resinto 7*/
+.tablero-jugador .recinto-p { top: 9%; left: 80%; width: 2vh; height: 2vh; }
+/* Resinto 8*/
+.tablero-jugador .recinto-q { top: 40.5%; left: 74%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-r { top: 47.1%; left: 74%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-s { top: 53.5%; left: 74%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-t { top: 40.5%; left: 81%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-u { top: 47.1%; left: 81%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-v { top: 53.5%; left: 81%; width: 2vh; height: 2vh; }
+/* Resinto 9 */
+.tablero-jugador .recinto-w { top: 74%; left: 84%; width: 3vh; height: 3vh; }
+
+
+.toggle-contenedor {
+   gap: 70px;
+   margin-top: 6dvh;
+   max-width: 100%;
+   margin: 70px auto auto;
+   flex-direction: row;
+}
+
+.tablero-jugador .DinoDado {
+   width: 5vh;
+   height: 5vh;
+   border-radius: 10px;
+   z-index: 20;
+}
+
+.toggleDinos2{
+   left: 230px;
+   bottom: 11px;
+}
+
+img.Dinos{
+   width: 5dvh;
+   height: auto;
+   border: 2px solid #25180b;
+   border-radius: 8px;
+   margin: 4px;
+   background: #452a1ac7;
+   padding: 5px;
+}
+}
+
+@media screen and (max-width: 1070px) {
+   .recintos{
+      margin: 9px;
+   }
 }

@@ -1,3 +1,13 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Draftosaurus Multijugador</title>
+    <link rel="stylesheet" href="../CSS/Styles_Base.css">
+    <link rel="stylesheet" href="../CSS/Multijugador.css">
+</head>
+<body class="Partida">
 <?php
 include_once('../../Datos/conexion.php');
 include_once '../../Negocio/autenticado.php';
@@ -10,20 +20,10 @@ $sql = "SELECT jugador_id, nombre, turno FROM jugadores WHERE fk_partida_id = $i
 $result = $conexion->query($sql);
 $jugadores = $result->fetch_all(MYSQLI_ASSOC);
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Draftosaurus Multijugador</title>
-    <link rel="stylesheet" href="../CSS/Styles_Base.css">
-    <link rel="stylesheet" href="../CSS/Multijugador.css">
-</head>
-<body class="Partida">
-
 <article class="tableros-container">
     <?php foreach($jugadores as $jugador): ?>
         <section class="tablero-jugador" data-jugador-id="<?= $jugador['jugador_id'] ?>">
-            <header class="DinoPuntos"><?= htmlspecialchars($jugador['nombre']) ?> <span class="puntos">0</span></header>
+            <header class="DinoPuntos"><?= htmlspecialchars($jugador['nombre']) ?><span class="puntos">0</span></header>
 
             <section class="recintos">
                 <aside> 
@@ -81,7 +81,7 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
             <section class="toggle-contenedor">
                 <img src="https://images.vexels.com/media/users/3/264723/isolated/preview/dd0ea3896edd75f54e62342f8e7e7d85-caja-de-carton-de-dibujos-animados.png" alt="Caja de Dinosaurios" class="toggleDinos">
                 <aside class="DinoDado">
-                    <img class="Dado" src="https://i.imgur.com/aejOyBz.png" alt="cara del dado">
+                    <img src="https://i.imgur.com/aejOyBz.png" alt="cara del dado">
                 </aside>
             </section>
 
@@ -94,7 +94,7 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
     <?php endforeach; ?>
 </article>
 <script src="../JS/dinosaurios.js"></script>
-<script src="../JS/mostrar_dinosaurios.js"></script>
+<script src="../JS/mostrar_dinosaurios_multijugador.js"></script>
 <script src="../JS/multijugador_juego.js"></script>
 </body>
 </html>
