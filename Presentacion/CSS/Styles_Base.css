@@ -9,7 +9,7 @@ body {
   background-position: center;
   color: #ffffff;
   background-color: #c59a6d;
-  max-width: 100dvw;
+  width: 100dvw;
   height: 100dvh;
   overflow-x: hidden;
   font-size: 20px;
@@ -21,7 +21,7 @@ body {
   align-items: center;
   background-color: #63402c;
   padding: 20px;
-  height: 15vh;
+  height: auto;
   object-fit: cover;
   flex-wrap: wrap;
   gap: 10px;

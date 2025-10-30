@@ -16,14 +16,17 @@ include_once '../../Negocio/cabecera.php';
         <h1>Selecciona el modo de juego</h1>
         <a href="Juego.php" class="boton">Solitario</a>
         <button id="btnMultijugador" class="boton">Multijugador</button>
+        
+        <!-- Botón para ir a Gestión -->
+        <button id="btnGestion" class="boton">Gestión</button>
     </div>
     
    <section id="modalJugadores" class="modal">
     <form class="modal-contenido" onsubmit="return false;">
-        <h2>Multijugador</h2>
+        <h2>Seleccionar Jugadores</h2>
         <label for="numJugadores">Cantidad de jugadores (2-5):</label>
         <input type="number" id="numJugadores" min="2" max="5" value="2">
-        <p id="nombresJugadores"></p>
+        <div id="nombresJugadores"></div>
         <button type="button" id="btnIniciar">Iniciar Juego</button>
         <button type="button" id="btnCerrarModal" class="cerrar">Cancelar</button>
     </form>

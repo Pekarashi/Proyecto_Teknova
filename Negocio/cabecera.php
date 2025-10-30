@@ -20,14 +20,17 @@ $imagen = isset($_SESSION['imagen_perfil']) ? $_SESSION['imagen_perfil'] : "http
             <h5 class="nombre-Usuario"><?php echo htmlspecialchars($nombre); ?></h5>
             <?php if ($usuario): ?>
                 <a href="Ajustes.php" class="ajustes">Ajustes</a>
-            
             <?php else: ?>
                 <a href="login.php" class="login">Iniciar Sesión</a>
             <?php endif; ?>
         </aside>
     </section>
 
-    <!-- Logos -->
-    <img src="https://i.imgur.com/Elnz5fv.png" alt="Logo Draftosaurus" class="logo-central">
+    <!-- Logo Draftosaurus como botón (envuelto en <a>) -->
+    <a href="Draftosaurus.php">
+        <img src="https://i.imgur.com/Elnz5fv.png" alt="Logo Draftosaurus" class="logo-central">
+    </a>
+
+    <!-- Logo Teknova (sin cambios) -->
     <img src="https://i.imgur.com/lNgoRWb.png" alt="Logo Teknova" class="logo-teknova">
 </header>
