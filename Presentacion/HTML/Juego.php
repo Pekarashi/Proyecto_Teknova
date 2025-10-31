@@ -86,7 +86,6 @@ include_once '../../Negocio/cabecera.php';
 <script src="../JS/dinosaurios.js"></script>
 <script src="../JS/mostrar_dinosaurios_solitario.js"></script>
 <script src="../JS/Juego.js"></script>
-<script src="../JS/idioma.js"></script>
 
 </body>
 </html>
