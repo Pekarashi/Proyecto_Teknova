@@ -148,81 +148,22 @@ img.Dinos{
 }
 
 .Buscarecinto > .Dinos {
-   width: 100%;
-   background: #452a1a3d;
-   border: 0;
+    width: 100%;
+    background: #452a1a3d;
+    border: 0;
 }
 
 .dinos, .dinos2{
    margin: auto;
 }
 
-
-@media screen and (max-width: 1024px) {
-.logo-central {
-   display: none;
-}
-
-.barra-superior { 
-   padding: 0px;
-}
-
-.tablero-jugador {
-   max-width: 64dvw;
-   flex-direction: revert;
-}
-
-.toggle-contendor {
-   flex-direction: column;
-   margin:auto;
-   gap: 15px;
-} 
-
-.tablero-jugador .recintos {
-   width: 33dvw;
-   height: 63dvh;
-   margin: 20px;
-}
-
-.DinoPuntos {
-   font-size:  20px;
-}
-
-.tablero-jugador .DinoDado {
-   width: 15vh;
-   height: 14vh;
-   border-radius: 14px;
-}
-}
-
-
-@media screen and (max-width: 992px){
-/* Estilos para la barra superior */ 
-.img-Usuario {
-   width: 11rem;
-}
-
-.nombre-Usuario {
-   margin-left: 10px;
-   font-size: 45px;
-}
-.ajustes, .login {
-   font-size: 43px;
-   padding: 6px 21px;
-}
-
-.logo-teknova {
-   align-items: center;
-   width: 16rem;
-}
-/* Fin */
+@media screen and (max-width: 992px) {
 
 .tablero-jugador {
    flex-direction: column;
    max-width: max-content;
-   width: auto;
    height: auto;
-   margin: 15px auto;
+   margin: 23px auto;
 }
 
 .DinoPuntos {
@@ -230,48 +171,48 @@ img.Dinos{
 }
 
 .tablero-jugador .recintos {    
-   width: 46dvh;
-   height: 46dvh;
-   margin: 20px;
+   width: 29dvh;
+   height: 29dvh;
+   margin: 15px;
 }
 
 /* Resinto 1*/
-.tablero-jugador .recinto-a { top: 5%;  left: 12%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-b { top: 11.5%; left: 12%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-c { top: 18%; left: 12%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-d { top: 5%;  left: 19%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-e { top: 11.5%; left: 19%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-f { top: 18%; left: 19%; width: 3vh; height: 3vh; }
+.tablero-jugador .recinto-a { top: 5%;  left: 12%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-b { top: 11.5%; left: 12%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-c { top: 18%; left: 12%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-d { top: 5%;  left: 19%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-e { top: 11.5%; left: 19%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-f { top: 18%; left: 19%; width: 2vh; height: 2vh; }
 /* Resinto 2*/
-.tablero-jugador .recinto-g { top: 39%; left: 9%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-h { top: 39%; left: 15.5%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-i { top: 39%; left: 22.2%; width: 3vh; height: 3vh; }
+.tablero-jugador .recinto-g { top: 39%; left: 9%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-h { top: 39%; left: 15.5%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-i { top: 39%; left: 22.2%; width: 2vh; height: 2vh; }
 /* Resinto 3*/
-.tablero-jugador .recinto-j { top: 71.1%; left: 16%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-k { top: 78%; left: 16%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-l { top: 84.6%; left: 16%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-m { top: 71.1%; left: 23%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-n { top: 78%; left: 23%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-o { top: 84.6%; left: 23%; width: 3vh; height: 3vh; }
+.tablero-jugador .recinto-j { top: 71.1%; left: 14%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-k { top: 78%; left: 14%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-l { top: 84.6%; left: 14%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-m { top: 71.1%; left: 21%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-n { top: 78%; left: 21%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-o { top: 84.6%; left: 21%; width: 2vh; height: 2vh; }
 /* Rio */
-.tablero-jugador .espacio-4 { border-color: rgba(148, 113, 18, 0); top: 0%; left: 44%; width: 8vh; height: 15vh; }
-.tablero-jugador .espacio-5 { border-color: rgba(148, 113, 18, 0); top: 33.5%; left: 39%; width: 8vh; height: 15vh; }
-.tablero-jugador .espacio-6 { border-color: rgba(148, 113, 18, 0); top: 66%; left: 44%; width: 9vh; height: 15.5vh; }
+.tablero-jugador .espacio-4 { border-color: rgba(148, 113, 18, 0);top: 0%; left: 44%; width: 6vh; height: 10vh; }
+.tablero-jugador .espacio-5 { border-color: rgba(148, 113, 18, 0);top: 33.5%; left: 39%; width: 6vh; height: 10vh; }
+.tablero-jugador .espacio-6 { border-color: rgba(148, 113, 18, 0);top: 67%; left: 44%; width: 8vh; height: 9.5vh; }
 /* Resinto 7*/
-.tablero-jugador .recinto-p { top: 9%; left: 80%; width: 3vh; height: 3vh; }
+.tablero-jugador .recinto-p { top: 9%; left: 80%; width: 2vh; height: 2vh; }
 /* Resinto 8*/
-.tablero-jugador .recinto-q { top: 40.5%; left: 74%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-r { top: 47.1%; left: 74%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-s { top: 53.5%; left: 74%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-t { top: 40.5%; left: 81%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-u { top: 47.1%; left: 81%; width: 3vh; height: 3vh; }
-.tablero-jugador .recinto-v { top: 53.5%; left: 81%; width: 3vh; height: 3vh; }
+.tablero-jugador .recinto-q { top: 40.5%; left: 74%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-r { top: 47.1%; left: 74%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-s { top: 53.5%; left: 74%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-t { top: 40.5%; left: 81%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-u { top: 47.1%; left: 81%; width: 2vh; height: 2vh; }
+.tablero-jugador .recinto-v { top: 53.5%; left: 81%; width: 2vh; height: 2vh; }
 /* Resinto 9 */
-.tablero-jugador .recinto-w { top: 74%; left: 84%; width: 4vh; height: 4vh; }
+.tablero-jugador .recinto-w { top: 74%; left: 84%; width: 3vh; height: 3vh; }
 
 
 .toggle-contenedor {
-   gap: 130px;
+   gap: 70px;
    margin-top: 6dvh;
    max-width: 100%;
    margin: 70px auto auto;
@@ -279,8 +220,8 @@ img.Dinos{
 }
 
 .tablero-jugador .DinoDado {
-   width: 7vh;
-   height: 7vh;
+   width: 5vh;
+   height: 5vh;
    border-radius: 10px;
    z-index: 20;
 }
@@ -299,4 +240,10 @@ img.Dinos{
    background: #452a1ac7;
    padding: 5px;
 }
+}
+
+@media screen and (max-width: 1070px) {
+   .recintos{
+      margin: 9px;
+   }
 }

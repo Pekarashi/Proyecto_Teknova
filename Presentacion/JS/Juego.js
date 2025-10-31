@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
    // APLICAR RESTRICCION 
   function aplicarRestriccion(cara) {
-    bloquearTodosRecintos();
+    //bloquearTodosRecintos();
 
     if (cara === 0) {
       const validos = zonaBosque.concat(zonaTrio, recintoRey);
