@@ -34,4 +34,5 @@ include_once '../../Negocio/cabecera.php';
 
 <script src="../JS/SelecionarModo.js"></script>
 </body>
+<script src="../JS/idioma.js"></script>
 </html>

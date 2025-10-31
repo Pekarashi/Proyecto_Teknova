@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +16,16 @@ include_once '../../Negocio/cabecera.php';
     <button class="toggle-btn" id="toggleBtn">&gt;</button>
 
     <nav class="sidebar" id="sidebar">
-        <a href="SelecionarModo.php">Modo de Juego</a>
-        <a href="Reglas.php">Reglas del juego</a>
-        <a href="puntuaciones.php">Puntuaciones</a>
-        <a href="historial.php">Historial</a>
+        <a href="SelecionarModo.php" data-trad="Modo de Juego">Modo de Juego</a>
+        <a href="Reglas.php" data-trad="Reglas del juego">Reglas del juego</a>
+        <a href="puntuaciones.php" data-trad="Puntuaciones">Puntuaciones</a>
+        <a href="historial.php" data-trad="Historial">Historial</a>
     </nav>
+
     <main>
         <article class="container">
-            <h4 class="Información-del-juego">Información del juego</h4>
-            <p id="infogame">
+            <h4 class="Información-del-juego" data-trad="Información del juego">Información del juego</h4>
+            <p id="infogame" data-trad="Descripción del juego">
                 <strong>Draftosaurus</strong> 
                 Es un juego de mesa familiar en el que los jugadores construyen su propio parque de dinosaurios.
                 El objetivo principal es atraer la mayor cantidad de visitantes organizando los dinosaurios en distintos recintos, cada uno con reglas específicas para su colocación.
@@ -35,6 +36,8 @@ include_once '../../Negocio/cabecera.php';
             </p>
         </article>
     </main>
+
     <script src="../JS/draftosaurus.js"></script>
+    <script src="../JS/idioma.js"></script>
 </body>
 </html>

@@ -96,5 +96,6 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
 <script src="../JS/dinosaurios.js"></script>
 <script src="../JS/mostrar_dinosaurios_multijugador.js"></script>
 <script src="../JS/multijugador_juego.js"></script>
+<script src="../JS/idioma.js"></script>
 </body>
 </html>

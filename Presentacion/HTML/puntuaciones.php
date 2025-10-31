@@ -72,5 +72,6 @@ include_once '../../Negocio/cabecera.php';
                 Actualizar Puntuaciones
         </button>
     </section>
+    <script src="../JS/idioma.js"></script>
 </body>
 </html>

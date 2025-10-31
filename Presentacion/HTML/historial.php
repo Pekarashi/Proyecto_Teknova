@@ -3,24 +3,20 @@ include_once '../../Datos/conexion.php';
 include_once '../../Negocio/autenticado.php';
 include_once '../../Negocio/cabecera.php';
 
-// Asegurar que la conexión exista
 if (!$conexion) {
     die("Error de conexión a la base de datos");
 }
 
-// Evitar reiniciar sesión si ya está activa
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Obtener el ID del usuario desde la sesión
 $usuario_id = $_SESSION['usuario_id'] ?? null;
 
 if (!$usuario_id) {
     die("Usuario no autenticado");
 }
 
-// Consulta para obtener el historial de partidas del usuario
 $sql = "SELECT partida_id, ganador, fecha_fin, puntaje FROM partida WHERE fk_usuario_id = ?";
 $stmt = $conexion->prepare($sql);
 if (!$stmt) {
@@ -38,13 +34,9 @@ $result = $stmt->get_result();
 $historial = [];
 while ($row = $result->fetch_assoc()) {
     $puntajes = json_decode($row['puntaje'], true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        continue; // Evita errores de JSON
-    }
+    if (json_last_error() !== JSON_ERROR_NONE) continue;
 
-    $jugadores = array_map(function ($p) {
-        return $p['nombre'];
-    }, $puntajes);
+    $jugadores = array_map(fn($p) => $p['nombre'], $puntajes);
 
     $historial[] = [
         'partida_id' => $row['partida_id'],
@@ -59,25 +51,22 @@ while ($row = $result->fetch_assoc()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Draftosaurus - Historial de Partidas</title>
-
- 
+    <title data-trad="Historial de Partidas">Draftosaurus - Historial de Partidas</title>
     <link rel="stylesheet" href="../CSS/Styles_Base.css?v=">
     <link rel="stylesheet" href="../CSS/HistorialPartidas.css?v=">
-
     <link rel="icon" href="imagenes/imgPestaña.png">
 </head>
 <body class="Historial">
     <main class="historial">
         <article class="container">
-            <h2>Historial de Partidas</h2>
+            <h2 data-trad="Historial de Partidas">Historial de Partidas</h2>
             <table id="tablaHistorial">
                 <thead>
                     <tr>
-                        <th># Partida</th>
-                        <th>Jugadores</th>
-                        <th>Ganador</th>
-                        <th>Fecha</th>
+                        <th data-trad="# Partida"># Partida</th>
+                        <th data-trad="Jugadores">Jugadores</th>
+                        <th data-trad="Ganador">Ganador</th>
+                        <th data-trad="Fecha">Fecha</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,13 +81,14 @@ while ($row = $result->fetch_assoc()) {
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='4'>No se han encontrado partidas.</td></tr>";
+                        echo "<tr><td colspan='4' data-trad='No se han encontrado partidas'>No se han encontrado partidas.</td></tr>";
                     }
                     ?>
                 </tbody>
             </table>
         </article>
     </main>
-    <script src="../JS/historial.js"></script>
+
+    <script src="../JS/idioma.js"></script>
 </body>
 </html>
