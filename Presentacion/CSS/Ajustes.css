@@ -1,4 +1,3 @@
-/* Main ajustes*/
 #Ajustes {
     max-width: 800px;
     margin: 30px auto;
@@ -16,8 +15,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
-    max-width: 300px;
+    width: 30dvw;
+    height: 30dvh;
     margin-bottom: 20px;
 }
 
@@ -111,8 +110,8 @@
 /*= Ajustes =*/
 .columna-Bajustes {
     padding: 10px;
-    width: 200px;
-    height: 300px;
+    width: 60dvw;
+    height: 48dvh;
     justify-content: center;
     gap: 30px;
 }

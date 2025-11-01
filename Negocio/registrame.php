@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validar longitud del nombre 
     if (strlen($nombre) < 3 || strlen($nombre) > 30) {
-        alertaError("El nombre debe tener entre 3 y 20 caracteres.");
+        alertaError("El nombre debe tener entre 3 y 30 caracteres.");
     }
 
     // Validar correo Gmail
@@ -32,9 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         alertaError("La contraseña debe tener entre 6 y 20 caracteres.");
     }
 
-    // Registrar usuario
+    // Encriptar contraseña
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+    // Registrar usuario con contraseña encriptada
     $solicitud = new Solicitudes();
-    $ok = $solicitud->registro($nombre, $correo, $password);
+    $ok = $solicitud->registro($nombre, $correo, $password_hash);
 
     if ($ok) {
         // Redirigir al login con mensaje de éxito

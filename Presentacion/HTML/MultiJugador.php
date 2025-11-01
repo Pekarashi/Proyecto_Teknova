@@ -23,7 +23,7 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
 <article class="tableros-container">
     <?php foreach($jugadores as $jugador): ?>
         <section class="tablero-jugador" data-jugador-id="<?= $jugador['jugador_id'] ?>">
-            <header class="DinoPuntos"><?= htmlspecialchars($jugador['nombre']) ?> - PUNTOS: <span class="puntos">0</span></header>
+            <header class="DinoPuntos"><?= htmlspecialchars($jugador['nombre']) ?> <span class="puntos">0</span></header>
 
             <section class="recintos">
                 <aside> 
