@@ -14,7 +14,7 @@ $jugadores = $result->fetch_all(MYSQLI_ASSOC);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Draftosaurus Multijugador</title>
+    
     <link rel="stylesheet" href="../CSS/Styles_Base.css">
     <link rel="stylesheet" href="../CSS/Multijugador.css">
 </head>

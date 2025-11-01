@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!recintoClase) return;
 
       if (recintoEl.classList.contains("bloqueado")) {
-        alertaError("🚫 No podés colocar aquí por la restricción del dado.");
+        alertaError("No podés colocar aquí por la restricción del dado.");
         return;
       }
 

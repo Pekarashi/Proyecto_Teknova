@@ -70,25 +70,28 @@ while ($row = $result->fetch_assoc()) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    if (!empty($historial)) {
-                        foreach ($historial as $partida) {
-                            echo "<tr>";
-                            echo "<td>{$partida['partida_id']}</td>";
-                            echo "<td>" . implode(", ", $partida['jugadores']) . "</td>";
-                            echo "<td>{$partida['ganador']}</td>";
-                            echo "<td>{$partida['fecha']}</td>";
-                            echo "</tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='4' data-trad='No se han encontrado partidas'>No se han encontrado partidas.</td></tr>";
-                    }
-                    ?>
+                    <?php if (!empty($historial)): ?>
+                        <?php foreach ($historial as $partida): ?>
+                            <tr>
+                                <td><?= $partida['partida_id'] ?></td>
+                                <td><?= implode(", ", $partida['jugadores']) ?></td>
+                                <td><?= $partida['ganador'] ?></td>
+                                <td><?= $partida['fecha'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="4" data-trad="No se han encontrado partidas">
+                                No se han encontrado partidas.
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </article>
     </main>
 
+    <!-- Asegurate que idioma.js esté al final -->
     <script src="../JS/idioma.js"></script>
 </body>
 </html>
