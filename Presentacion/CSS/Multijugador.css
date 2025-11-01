@@ -1,7 +1,12 @@
+.tableros-container {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
 .tablero-jugador {
    display: flex;
-   width: 100%;
-   max-width: 60dvw;
+   max-width: 100%;
    margin: 23px auto;
    padding: 12px;
    background: #aa693be0;
@@ -89,7 +94,6 @@
    background: #050505;
    padding: 6px 10px;
    border-radius: 8px;
-   font-weight: 700%;
    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
    z-index: 20;
 }
@@ -98,12 +102,13 @@
    grid-area: toggle;
    position: static;
    display: flex;
+   justify-content: center;
    flex-direction: column;
    align-items: center;
    gap: 50px;
-   margin-top: 19dvh;
    max-width: 160px;
-   margin-left: 65px;
+   margin-left: 50px;
+   margin-right: 50px;
 }
 
 .tablero-jugador .DinoDado {
@@ -148,9 +153,9 @@ img.Dinos{
 }
 
 .Buscarecinto > .Dinos {
-    width: 100%;
-    background: #452a1a3d;
-    border: 0;
+   width: 100%;
+   background: #452a1a3d;
+   border: 0;
 }
 
 .dinos, .dinos2{
@@ -158,10 +163,28 @@ img.Dinos{
 }
 
 @media screen and (max-width: 992px) {
+.img-Usuario {
+   width: 15dvw;
+}
+
+.nombre-Usuario {
+   margin-left: 10px;
+   font-size: 4dvw;
+}
+.ajustes, .login {
+   font-size: 4dvw;
+   padding: 6px 21px;
+}
+
+.logo-teknova {
+   align-items: center;
+   width: 22dvw;
+}
 
 .tablero-jugador {
    flex-direction: column;
    max-width: max-content;
+   align-items: center;
    height: auto;
    margin: 23px auto;
 }
@@ -240,10 +263,11 @@ img.Dinos{
    background: #452a1ac7;
    padding: 5px;
 }
+
 }
 
-@media screen and (max-width: 1070px) {
-   .recintos{
-      margin: 9px;
-   }
+@media screen and (min-width: 768px) {
+.tablero-jugador {
+   padding: 5px;
+}
 }

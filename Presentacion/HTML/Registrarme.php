@@ -28,5 +28,6 @@ include_once '../../Negocio/cabecera.php';
       <button type="submit">REGISTRAR</button>
     </form>
   </main>
+  <script src="../JS/idioma.js"></script>
 </body>
 </html>

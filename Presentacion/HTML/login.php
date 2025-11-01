@@ -39,5 +39,6 @@
       alert("<?php echo htmlspecialchars($_GET['error']); ?>");
     <?php endif; ?>
   </script>
+  <script src="../JS/idioma.js"></script>
 </body>
 </html>
