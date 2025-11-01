@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puntuaciones</title>
+    <title data-trad="Puntuaciones">Puntuaciones</title>
     <link rel="stylesheet" href="../CSS/Styles_Base.css">
     <link rel="stylesheet" href="../CSS/Puntuaciones.css">
 </head>
 <?php
-include_once 'autenticado.php';
-include_once 'cabecera.php';
+include_once '../../Negocio/autenticado.php';
+include_once '../../Negocio/cabecera.php';
 ?>
 <body>
     <section class="Puntuaciones">
-        <h1 class="TABLA">TABLA DE PUNTUACIONES</h1>
+        <h1 class="TABLA" data-trad="TABLA DE PUNTUACIONES">TABLA DE PUNTUACIONES</h1>
         <table>
             <tr>
-                <th>Posicion</th>
-                <th>Nombre</th>
-                <th>Puntos</th>
-                <th>Fecha</th>
+                <th data-trad="Posicion">Posicion</th>
+                <th data-trad="Nombre">Nombre</th>
+                <th data-trad="Puntos">Puntos</th>
+                <th data-trad="Fecha">Fecha</th>
             </tr>
             <tr class="primero">
                 <td>1</td>
@@ -65,12 +65,14 @@ include_once 'cabecera.php';
             </tr>
         </table>
         <div class="total-jugadores">
-            <strong>Total de jugadores: 10</strong>
+            <strong data-trad="Total de jugadores">Total de jugadores: 10</strong>
         </div>
-        <button onclick="alert('¡Esta función todavía no está implementada!')" 
-                class="boton-actualizar">
+        <button onclick="alert(traducir('Función no implementada'))" 
+                class="boton-actualizar" 
+                data-trad="Actualizar Puntuaciones">
                 Actualizar Puntuaciones
         </button>
     </section>
+    <script src="../JS/idioma.js"></script>
 </body>
 </html>

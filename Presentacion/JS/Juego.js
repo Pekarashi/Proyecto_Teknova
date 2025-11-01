@@ -1,311 +1,389 @@
-// DEFINIMOS EL MAPA Y LOS PUNTOS POR RECINTO
-var mapa = {
-  // Bosque de la Igualdad: cada recinto tiene su puntaje
-  "recinto-a": 2,
-  "recinto-b": 10,
-  "recinto-c": 4,
-  "recinto-d": 18,
-  "recinto-e": 8,
-  "recinto-f": 20,
+document.addEventListener("DOMContentLoaded", () => {
+  // MAPA DE RECINTOS Y PUNTAJES
+  var mapa = {
+    "recinto-a": 2, 
+    "recinto-b": 10, 
+    "recinto-c": 4, 
+    "recinto-d": 18, 
+    "recinto-e": 8, 
+    "recinto-f": 20,
 
-  // Trío Frondoso
-  "recinto-g": 1,
-  "recinto-h": 3,
-  "recinto-i": 3,
+    "recinto-g": 1, 
+    "recinto-h": 3, 
+    "recinto-i": 3,
 
-  // Pradera del Amor
-  "recinto-j": 2.5,
-  "recinto-k": 2.5,
-  "recinto-l": 2.5,
-  "recinto-m": 2.5,
-  "recinto-n": 2.5,
-  "recinto-o": 2.5,
+    "recinto-j": 2.5, 
+    "recinto-k": 2.5, 
+    "recinto-l": 2.5, 
+    "recinto-m": 2.5, 
+    "recinto-n": 2.5, 
+    "recinto-o": 2.5,
 
-  // Río
-  "espacio-4": 1,
-  "espacio-5": 1,
-  "espacio-6": 1,
+    "espacio-4": 1, 
+    "espacio-5": 1, 
+    "espacio-6": 1,
 
-  // Rey de la Selva
-  "recinto-p": 7,
+    "recinto-p": 7,
+    "recinto-q": 1, 
+    "recinto-r": 10, 
+    "recinto-s": 3, 
+    "recinto-t": 18, 
+    "recinto-u": 8, 
+    "recinto-v": 20,
+    
+    "recinto-w": 7
+  };
 
-  // Pradera de las Diferencias
-  "recinto-q": 1,
-  "recinto-r": 10,
-  "recinto-s": 3,
-  "recinto-t": 18,
-  "recinto-u": 8,
-  "recinto-v": 20,
+   // VARIABLES GLOBALES
+  var puntos = 0;
+  window.dinoSeleccionado = null;
+  var recintosDinos = {};
+  var puntosTrioFrondoso = 0;
+  var parejasAmorActuales = 0;
+  var caraActual = null; 
 
-  // Isla Solitaria
-  "recinto-w": 7
-};
-
-// VARIABLES GLOBALES
-var puntos = 0;                // Guarda los puntos totales del jugador
-var dinoSeleccionado = null;   // Guarda qué dinosaurio está seleccionado
-var recintosDinos = {};        // Guarda qué dinos hay en cada recinto
-var puntosTrioFrondoso = 0;    // Para que el Trío Frondoso no sume dos veces
-var parejasAmorActuales = 0;   // Para contar las parejas en Pradera del Amor
-
-// FUNCIONES DE PUNTAJE
-function mostrarPuntos() {
-  var puntosElemento = document.querySelector(".DinoPuntos"); // Busca el elemento del puntaje
-  if (puntosElemento) {
-    puntosElemento.textContent = "PUNTOS: " + puntos; // Actualiza el puntaje en pantalla
+  // mostrar puntos & alertas
+  function mostrarPuntos() {
+    var puntosElemento = document.querySelector(".DinoPuntos");
+    if (puntosElemento) puntosElemento.textContent = "PUNTOS: " + puntos;
   }
-}
+  function alertaError(mensaje) {
+    alert("" + mensaje);
+  }
 
-// DADO DE IMÁGENES
-const dado = document.getElementById("dado"); // Busca el dado en el HTML
-const imagenesDado = [                        // URLs de cada cara del dado
-  "https://i.imgur.com/aejOyBz.png",
-  "https://i.imgur.com/J62cPcN.png",
-  "https://i.imgur.com/Wv4kiqA.png",
-  "https://i.imgur.com/YR2y6EB.png",
-  "https://i.imgur.com/BC6AkWf.png",
-  "https://i.imgur.com/3Fx3gf0.png"
-];
+  //DADO 
+  const dado = document.getElementById("dado");
+  const imagenesDado = [
+    "https://i.imgur.com/aejOyBz.png", // 0 Bosque
+    "https://i.imgur.com/BC6AkWf.png", // 1 Llanura
+    "https://i.imgur.com/YR2y6EB.png", // 2 Baños (derecha)
+    "https://i.imgur.com/Wv4kiqA.png", // 3 Cafetería (izquierda)
+    "https://i.imgur.com/J62cPcN.png",
+    "https://i.imgur.com/3Fx3gf0.png"
+  ];
 
-// Función para tirar el dado (elige una imagen al azar)
-function tirarDado() {
-  const random = Math.floor(Math.random() * 6); 
-  dado.innerHTML = `<img src="${imagenesDado[random]}" alt="cara del dado">`; // Muestra la imagen
-}
+  // crear texto de regla si no existe
+  (function crearReglaActualUI() {
+    if (!dado) return;
+    if (!document.getElementById("regla-actual")) {
+      const divRegla = document.createElement("div");
+      divRegla.id = "regla-actual";
+      divRegla.style.textAlign = "center";
+      divRegla.style.marginTop = "8px";
+      divRegla.style.fontWeight = "600";
+      divRegla.style.fontSize = "14px";
+      divRegla.textContent = "Tira el dado para ver la restricción";
+      dado.parentNode.insertBefore(divRegla, dado.nextSibling);
+    }
+  })();
 
-// Si el dado existe, agregamos el evento click
-if (dado) dado.addEventListener("click", tirarDado);
+  function tirarDado() {
+    if (!dado) return;
+    const random = Math.floor(Math.random() * 6); 
+    caraActual = random;
+    dado.innerHTML = `<img src="${imagenesDado[random]}" alt="cara del dado">`;
 
-// DIALOG DE DINOS (ventana para seleccionar dinos)
-const toggleDinos = document.getElementById("toggleDinos");   // Botón para abrir ventana
-const toggleDinos2 = document.getElementById("toggleDinos2"); // Ventana de dinos
-const btnCerrar = document.getElementById("cerrar");          // Botón para cerrar ventana
+    const reglas = [
+      "Bosque : colocar solo en Bosque, Trío Frondoso o Rey de la Selva.",
+      "Llanura : colocar solo en Pradera del Amor, Pradera de las Diferencias o Isla Solitaria.",
+      "Baños : colocar solo en recintos de la derecha.",
+      "Cafetería : colocar solo en recintos de la izquierda."
+    ];
 
-// Abrir ventana de dinos
-if (toggleDinos && toggleDinos2) {
-  toggleDinos.addEventListener("click", function() {
-    toggleDinos2.style.display = "flex"; // Muestra la ventana
-  });
-}
+    const textoRegla = document.getElementById("regla-actual");
+    if (textoRegla) textoRegla.textContent = "Restricción actual: " + reglas[random];
 
-// Cerrar ventana de dinos
-if (btnCerrar && toggleDinos2) {
-  btnCerrar.addEventListener("click", function(e) {
-    e.preventDefault();                   // Evita comportamientos por defecto
-    toggleDinos2.style.display = "none";  // Oculta la ventana
-  });
-}
+    aplicarRestriccion(random);
+    console.log("Regla del dado:", reglas[random]);
+  }
+  if (dado) dado.addEventListener("click", tirarDado);
 
-// SELECCIONAR DINOSAURIO
-var dinos = document.querySelectorAll("#listaDinos .Dinos, #listaDinos2 .Dinos"); // Todos los dinos
+  
+   // DEFINICIONES DE ZONAS
+   
+  const zonaBosque = ["recinto-a","recinto-b","recinto-c","recinto-d","recinto-e","recinto-f"];
+  const zonaTrio = ["recinto-g","recinto-h","recinto-i"];
+  const zonaPraderaAmor = ["recinto-j","recinto-k","recinto-l","recinto-m","recinto-n","recinto-o"];
+  const zonaPraderaDiferencias = ["recinto-q","recinto-r","recinto-s","recinto-t","recinto-u","recinto-v"];
+  const recintoRey = ["recinto-p"];
+  const recintoIsla = ["recinto-w"];
+  const izquierda = ["recinto-a","recinto-b","recinto-c","recinto-d","recinto-e","recinto-f","recinto-g","recinto-h","recinto-i","recinto-j","recinto-k","recinto-l","espacio-4","espacio-5","espacio-6"];
+  const derecha = ["recinto-m","recinto-n","recinto-o","recinto-p","recinto-q","recinto-r","recinto-s","recinto-t","recinto-u","recinto-v","recinto-w"];
 
-dinos.forEach(function(dino) {
-  dino.addEventListener("click", function() {
-    dinos.forEach(d => d.classList.remove("dino-seleccionado")); // Quitamos selección de todos
-    this.classList.add("dino-seleccionado");                     // Marcamos el dino clickeado
-    dinoSeleccionado = this;                                     // Guardamos cuál está seleccionado
-    console.log("Dinosaurio seleccionado");                     // Solo para depurar
-  });
-});
+ 
+  function desbloquearRecintosLista(listaIds) {
+    listaIds.forEach(id => {
+      // intento por clase 
+      let recinto = document.querySelector(`.${id}`);
+      if (!recinto) recinto = document.querySelector(`#${id}`);
+      if (recinto) {
+        recinto.classList.remove("bloqueado");
+        recinto.style.pointerEvents = "auto";
+        recinto.style.opacity = "1";
+      }
+    });
+  }
+   // APLICAR RESTRICCION 
+  function aplicarRestriccion(cara) {
+    //bloquearTodosRecintos();
 
-// COLOCAR DINOSAURIO EN UN RECINTO Y SUMAR PUNTOS
-var recintos = document.querySelectorAll(".Buscarecinto"); // Todos los recintos del tablero
+    if (cara === 0) {
+      const validos = zonaBosque.concat(zonaTrio, recintoRey);
+      desbloquearRecintosLista(validos);
+      return;
+    }
+    if (cara === 1) {
+      const validos = zonaPraderaAmor.concat(zonaPraderaDiferencias, recintoIsla);
+      desbloquearRecintosLista(validos);
+      return;
+    }
+    if (cara === 2) {
+      desbloquearRecintosLista(derecha);
+      return;
+    }
+    if (cara === 3) {
+      desbloquearRecintosLista(izquierda);
+      return;
+    }
 
-recintos.forEach(function(recinto) {
-  recinto.addEventListener("click", function() {
-    if (!dinoSeleccionado) return; // Si no hay dino seleccionado, no hace nada
+    // fallback: desbloquear todos
+    document.querySelectorAll(".Buscarecinto").forEach(r => {
+      r.classList.remove("bloqueado");
+      r.style.pointerEvents = "auto";
+      r.style.opacity = "1";
+    });
+  }
 
-    // Busca la clase que identifica el recinto
-    var recintoClase = Array.from(recinto.classList)
-      .find(c => c.startsWith("recinto") || c.startsWith("espacio"));
-    if (!recintoClase) return;
+  function colocarEnRecintoPorClase(recintoClase) {
+    if (!window.dinoSeleccionado) return false;
+    // intento por clase o id (robusto)
+    let recinto = document.querySelector(`.${recintoClase}`);
+    if (!recinto) recinto = document.querySelector(`#${recintoClase}`);
+    if (!recinto) return false;
 
-    // Inicializa el arreglo si no existe para este recinto
+    const nombreDino = window.dinoSeleccionado.dataset.nombre;
     if (!recintosDinos[recintoClase]) recintosDinos[recintoClase] = [];
 
+    // chequeos del dado 
+    if (caraActual !== null) {
+      if (caraActual === 0) {
+        const validos = zonaBosque.concat(zonaTrio, recintoRey);
+        if (!validos.includes(recintoClase)) { alertaError("No podés colocar aquí por la restricción del dado (Bosque)."); return false; }
+      }
+      if (caraActual === 1) {
+        const validos = zonaPraderaAmor.concat(zonaPraderaDiferencias, recintoIsla);
+        if (!validos.includes(recintoClase)) { alertaError("No podés colocar aquí por la restricción del dado (Llanura)."); return false; }
+      }
+      if (caraActual === 2) {
+        if (!derecha.includes(recintoClase)) { alertaError("No podés colocar aquí por la restricción del dado (Baños)."); return false; }
+      }
+      if (caraActual === 3) {
+        if (!izquierda.includes(recintoClase)) { alertaError("No podés colocar aquí por la restricción del dado (Cafetería)."); return false; }
+      }
+    }
+
     // BOSQUE DE LA IGUALDAD
-    const bosque = ["recinto-a","recinto-b","recinto-c","recinto-d","recinto-e","recinto-f"];
-    if (bosque.includes(recintoClase)) {
+    if (zonaBosque.includes(recintoClase)) {
       let tipoExistente = null;
-      bosque.forEach(c => {
-        const dinoEnRecinto = document.querySelector(`.${c} .Dinos`);
-        if (dinoEnRecinto) tipoExistente = dinoEnRecinto.dataset.tipo; // Toma tipo del dino ya puesto
+      zonaBosque.forEach(c => {
+        const d = document.querySelector(`.${c} .Dinos`) || document.querySelector(`#${c} .Dinos`);
+        if (d) tipoExistente = d.dataset.nombre;
       });
+      if (tipoExistente && nombreDino !== tipoExistente) { alertaError("En el Bosque solo dinosaurios del mismo tipo."); return false; }
 
-      // Solo dinos del mismo tipo
-      if (tipoExistente && dinoSeleccionado.dataset.tipo !== tipoExistente) return;
-
-      recinto.appendChild(dinoSeleccionado); // Mueve dino al recinto
-      recintosDinos[recintoClase].push(dinoSeleccionado); 
-      dinoSeleccionado.classList.remove("dino-seleccionado");
-      dinoSeleccionado = null;
-      puntos += mapa[recintoClase] || 0; // Suma puntos según mapa
+      recinto.appendChild(window.dinoSeleccionado);
+      recintosDinos[recintoClase].push(window.dinoSeleccionado);
+      finalizarColocacion(recintoClase);
+      puntos += mapa[recintoClase] || 0;
       mostrarPuntos();
-      return;
+      return true;
     }
 
     // TRÍO FRONDOSO
-    const trioFrondoso = ["recinto-g", "recinto-h", "recinto-i"];
-    if (trioFrondoso.includes(recintoClase)) {
-      recinto.appendChild(dinoSeleccionado);
-      recintosDinos[recintoClase].push(dinoSeleccionado);
-      dinoSeleccionado.classList.remove("dino-seleccionado");
-      dinoSeleccionado = null;
+    if (zonaTrio.includes(recintoClase)) {
+      recinto.appendChild(window.dinoSeleccionado);
+      recintosDinos[recintoClase].push(window.dinoSeleccionado);
+      finalizarColocacion(recintoClase);
 
-      // Cuenta cuantos dinos hay en los 3 recintos
-      let totalTrio = 0;
-      trioFrondoso.forEach(c => {
-        totalTrio += document.querySelectorAll(`.${c} .Dinos`).length;
+      const tipos = [];
+      zonaTrio.forEach(c => {
+        const d = document.querySelector(`.${c} .Dinos`) || document.querySelector(`#${c} .Dinos`);
+        if (d) tipos.push(d.dataset.nombre);
       });
 
-      // Suma puntos solo la primera vez que hay 3 dinos
-      if (totalTrio === 3 && puntosTrioFrondoso === 0) {
-        puntosTrioFrondoso = trioFrondoso.reduce((acc, c) => acc + (mapa[c] || 0), 0);
-        puntos += puntosTrioFrondoso;
-      }
+      if (tipos.length === 3) {
+        const unicos = [...new Set(tipos)];
+        if (unicos.length === 3 && puntosTrioFrondoso === 0) {
+          puntosTrioFrondoso = zonaTrio.reduce((acc, c) => acc + (mapa[c] || 0), 0);
+          puntos += puntosTrioFrondoso;
+        } else puntos += mapa[recintoClase] || 0;
+      } else puntos += mapa[recintoClase] || 0;
 
       mostrarPuntos();
-      return;
+      return true;
     }
 
     // PRADERA DEL AMOR
-    const praderaAmor = ["recinto-j", "recinto-k", "recinto-l", "recinto-m", "recinto-n", "recinto-o"];
-    if (praderaAmor.includes(recintoClase)) {
-      let dinosPradera = [];
-      praderaAmor.forEach(c => {
-        const dinoEnRecinto = document.querySelector(`.${c} .Dinos`);
-        if (dinoEnRecinto) dinosPradera.push(dinoEnRecinto.dataset.tipo);
+    if (zonaPraderaAmor.includes(recintoClase)) {
+      let dinosAntes = [];
+      zonaPraderaAmor.forEach(c => {
+        const d = document.querySelector(`.${c} .Dinos`) || document.querySelector(`#${c} .Dinos`);
+        if (d) dinosAntes.push(d.dataset.nombre);
       });
+      let contAntes = {};
+      dinosAntes.forEach(n => contAntes[n] = (contAntes[n] || 0) + 1);
+      let paresAntes = Object.values(contAntes).reduce((s, v) => s + Math.floor(v / 2), 0);
 
-      let parejas = {};
-      dinosPradera.forEach(tipo => {
-        parejas[tipo] = (parejas[tipo] || 0) + 1; // Cuenta cuántos de cada tipo
+      recinto.appendChild(window.dinoSeleccionado);
+      recintosDinos[recintoClase].push(window.dinoSeleccionado);
+      finalizarColocacion(recintoClase);
+
+      let dinosDesp = [];
+      zonaPraderaAmor.forEach(c => {
+        const d = document.querySelector(`.${c} .Dinos`) || document.querySelector(`#${c} .Dinos`);
+        if (d) dinosDesp.push(d.dataset.nombre);
       });
+      let contDesp = {};
+      dinosDesp.forEach(n => contDesp[n] = (contDesp[n] || 0) + 1);
+      let paresDesp = Object.values(contDesp).reduce((s, v) => s + Math.floor(v / 2), 0);
 
-      let cantidadParejas = Object.values(parejas).filter(v => v === 2).length;
-
-      // Restricciones: máximo 3 parejas y máximo 2 del mismo tipo
-      if (cantidadParejas >= 3) return;
-      if (parejas[dinoSeleccionado.dataset.tipo] >= 2) return;
-
-      recinto.appendChild(dinoSeleccionado);
-      recintosDinos[recintoClase].push(dinoSeleccionado);
-      dinoSeleccionado.classList.remove("dino-seleccionado");
-      dinoSeleccionado = null;
-
-      // Recalcula parejas y suma 5 puntos si se formó una nueva pareja
-      dinosPradera = [];
-      praderaAmor.forEach(c => {
-        const dinoEnRecinto = document.querySelector(`.${c} .Dinos`);
-        if (dinoEnRecinto) dinosPradera.push(dinoEnRecinto.dataset.tipo);
-      });
-
-      parejas = {};
-      dinosPradera.forEach(tipo => {
-        parejas[tipo] = (parejas[tipo] || 0) + 1;
-      });
-
-      let nuevasParejas = Object.values(parejas).filter(v => v === 2).length;
-      if (nuevasParejas > cantidadParejas) {
-        puntos += 5;
-      }
+      const nuevasParejas = paresDesp - paresAntes;
+      if (nuevasParejas > 0) puntos += nuevasParejas * 5;
 
       mostrarPuntos();
-      return;
+      return true;
     }
 
     // PRADERA DE LAS DIFERENCIAS
-    const praderaDiferencias = ["recinto-q", "recinto-r", "recinto-s", "recinto-t", "recinto-u", "recinto-v"];
-    if (praderaDiferencias.includes(recintoClase)) {
-      let tiposColocados = [];
-      praderaDiferencias.forEach(c => {
-        const dinoEnRecinto = document.querySelector(`.${c} .Dinos`);
-        if (dinoEnRecinto) tiposColocados.push(dinoEnRecinto.dataset.tipo);
+    if (zonaPraderaDiferencias.includes(recintoClase)) {
+      const tiposColocados = [];
+      zonaPraderaDiferencias.forEach(c => {
+        const d = document.querySelector(`.${c} .Dinos`) || document.querySelector(`#${c} .Dinos`);
+        if (d) tiposColocados.push(d.dataset.nombre);
       });
+      if (tiposColocados.includes(nombreDino)) { alertaError("No podés repetir tipo en la Pradera de las Diferencias."); return false; }
 
-      if (tiposColocados.includes(dinoSeleccionado.dataset.tipo)) return; // No repetir tipo
-
-      recinto.appendChild(dinoSeleccionado);
-      recintosDinos[recintoClase].push(dinoSeleccionado);
-      dinoSeleccionado.classList.remove("dino-seleccionado");
-      dinoSeleccionado = null;
+      recinto.appendChild(window.dinoSeleccionado);
+      recintosDinos[recintoClase].push(window.dinoSeleccionado);
+      finalizarColocacion(recintoClase);
       puntos += mapa[recintoClase] || 0;
       mostrarPuntos();
-      return;
+      return true;
     }
 
-        // REY DE LA SELVA
-    const recintoRey = ["recinto-p"];
+    // REY DE LA SELVA
     if (recintoRey.includes(recintoClase)) {
-      const yaTiene = document.querySelector(`.${recintoClase} .Dinos`);
-      if (yaTiene) return; // Solo permite un dino en este recinto
+      const yaTiene = document.querySelector(`.${recintoClase} .Dinos`) || document.querySelector(`#${recintoClase} .Dinos`);
+      if (yaTiene) { alertaError("El Rey de la Selva ya tiene un dinosaurio."); return false; }
 
-      recinto.appendChild(dinoSeleccionado);
-      recintosDinos[recintoClase].push(dinoSeleccionado);
-      const tipoRey = dinoSeleccionado.dataset.tipo;
-      dinoSeleccionado.classList.remove("dino-seleccionado");
-      dinoSeleccionado = null;
+      recinto.appendChild(window.dinoSeleccionado);
+      recintosDinos[recintoClase].push(window.dinoSeleccionado);
+      const tipoRey = nombreDino;
+      finalizarColocacion(recintoClase);
 
-      // Cuenta cuántos dinos hay de cada especie en todos los recintos
-      let conteoPorEspecie = {};
-      Object.values(recintosDinos).forEach(arr => {
-        arr.forEach(d => {
-          const tipo = d.dataset.tipo;
-          conteoPorEspecie[tipo] = (conteoPorEspecie[tipo] || 0) + 1;
-        });
-      });
-
-      // Suma puntos si el dino es el más numeroso
-      const maxCantidad = Math.max(...Object.values(conteoPorEspecie));
-      if (conteoPorEspecie[tipoRey] === maxCantidad) {
-        puntos += 7;
-      }
+      let conteo = {};
+      Object.values(recintosDinos).forEach(arr => arr.forEach(dEl => {
+        if (!dEl) return;
+        const n = dEl.dataset.nombre;
+        conteo[n] = (conteo[n] || 0) + 1;
+      }));
+      const maxCantidad = Math.max(...Object.values(conteo));
+      if (conteo[tipoRey] === maxCantidad) puntos += 7;
+      else puntos += mapa[recintoClase] || 0;
 
       mostrarPuntos();
-      return;
+      return true;
     }
 
     // ISLA SOLITARIA
-    const recintoIsla = ["recinto-w"];
     if (recintoIsla.includes(recintoClase)) {
-      const yaTiene = document.querySelector(`.${recintoClase} .Dinos`);
-      if (yaTiene) return; // Solo un dino permitido
+      const yaTiene = document.querySelector(`.${recintoClase} .Dinos`) || document.querySelector(`#${recintoClase} .Dinos`);
+      if (yaTiene) { alertaError("La Isla Solitaria ya tiene un dinosaurio."); return false; }
 
-      recinto.appendChild(dinoSeleccionado);
-      recintosDinos[recintoClase].push(dinoSeleccionado);
-      const tipoIsla = dinoSeleccionado.dataset.tipo;
-      dinoSeleccionado.classList.remove("dino-seleccionado");
-      dinoSeleccionado = null;
+      recinto.appendChild(window.dinoSeleccionado);
+      recintosDinos[recintoClase].push(window.dinoSeleccionado);
+      const tipoIsla = nombreDino;
+      finalizarColocacion(recintoClase);
 
-      // Cuenta cuántos dinos hay de cada especie en todos los recintos
-      let conteoPorEspecie = {};
-      Object.values(recintosDinos).forEach(arr => {
-        arr.forEach(d => {
-          const tipo = d.dataset.tipo;
-          conteoPorEspecie[tipo] = (conteoPorEspecie[tipo] || 0) + 1;
-        });
-      });
+      let conteoIsla = {};
+      Object.values(recintosDinos).forEach(arr => arr.forEach(dEl => {
+        if (!dEl) return;
+        const n = dEl.dataset.nombre;
+        conteoIsla[n] = (conteoIsla[n] || 0) + 1;
+      }));
 
-      // Suma 7 puntos si el dino es el único de su especie
-      if (conteoPorEspecie[tipoIsla] === 1) {
-        puntos += 7;
-      }
+      if (conteoIsla[tipoIsla] === 1) puntos += 7;
+      else puntos += mapa[recintoClase] || 0;
 
       mostrarPuntos();
-      return;
+      return true;
     }
 
-    // CUALQUIER OTRO RECINTO NORMAL
-    recinto.appendChild(dinoSeleccionado);
-    recintosDinos[recintoClase].push(dinoSeleccionado);
-    dinoSeleccionado.classList.remove("dino-seleccionado");
-    dinoSeleccionado = null;
+    recinto.appendChild(window.dinoSeleccionado);
+    recintosDinos[recintoClase].push(window.dinoSeleccionado);
+    finalizarColocacion(recintoClase);
     puntos += mapa[recintoClase] || 0;
     mostrarPuntos();
+    return true;
+  }
+
+   // Finalizar colocación común
+  function finalizarColocacion(recintoClase) {
+    if (window.dinoSeleccionado) {
+      window.dinoSeleccionado.classList.remove("dino-seleccionado");
+      window.dinoSeleccionado.dataset.recinto = recintoClase;
+    }
+    window.dinoSeleccionado = null;
+  }
+
+   // SELECCIÓN DE DINOSAURIOS (UI)
+  const toggleDinos = document.getElementById("toggleDinos");
+  const toggleDinos2 = document.getElementById("toggleDinos2");
+  const btnCerrar = document.getElementById("cerrar");
+
+  if (toggleDinos && toggleDinos2) {
+    toggleDinos.addEventListener("click", function() { toggleDinos2.style.display = "flex"; });
+  }
+  if (btnCerrar && toggleDinos2) {
+    btnCerrar.addEventListener("click", function(e){ e.preventDefault(); toggleDinos2.style.display = "none"; });
+  }
+
+  // re-query para asegurarnos que existan (si dom cambió)
+  var dinos = document.querySelectorAll("#listaDinos .Dinos, #listaDinos2 .Dinos");
+  dinos.forEach(function(dino) {
+    dino.addEventListener("click", function() {
+      dinos.forEach(d => d.classList.remove("dino-seleccionado"));
+      this.classList.add("dino-seleccionado");
+      window.dinoSeleccionado = this;
+      console.log("Dinosaurio seleccionado:", this.dataset.nombre);
+    });
   });
+
+   // COLOCACIÓN POR CLIC (usa colocarEnRecintoPorClase)
+  var recintosNodo = document.querySelectorAll(".Buscarecinto");
+  recintosNodo.forEach(function(recintoEl) {
+    recintoEl.addEventListener("click", function(e) {
+      // localizar nombre lógico del recinto (ej 'recinto-a' o 'espacio-4')
+      const recintoClase = Array.from(recintoEl.classList).find(c => c.startsWith("recinto") || c.startsWith("espacio")) || recintoEl.id;
+      if (!recintoClase) return;
+
+      if (recintoEl.classList.contains("bloqueado")) {
+        alertaError("No podés colocar aquí por la restricción del dado.");
+        return;
+      }
+
+      if (!window.dinoSeleccionado) {
+        alertaError("Debes seleccionar un dinosaurio antes de colocarlo.");
+        return;
+      }
+
+      colocarEnRecintoPorClase(recintoClase);
+    });
+  });
+
+  /** ==========================
+   * INICIAL
+   * ========================= */
+  mostrarPuntos();
+  console.log("Juego.js ");
 });
-
-// Mostrar el puntaje inicial al cargar la página
-mostrarPuntos();
-console.log("Juego.js cargado correctamente");
-

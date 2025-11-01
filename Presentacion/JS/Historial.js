@@ -1,17 +1,20 @@
-         //  Cargar historial desde localStorage si existe //
-        const historial = JSON.parse(localStorage.getItem("historialPartidas")) || [];
-
-        const tabla = document.querySelector("#tablaHistorial tbody");
-
-        historial.forEach((partida, index) => {
-            const fila = document.createElement("tr");
-
-            fila.innerHTML = `
-                <td>${index + 1}</td>
-                <td>${partida.jugadores.join(", ")}</td>
-                <td>${partida.puntuaciones.join(" - ")}</td>
-                <td>${partida.fecha}</td>
-            `;
-
-            tabla.appendChild(fila);
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('../HTML/historial.php')  // Ruta al archivo PHP que devuelve los datos del historial
+        .then(response => response.json())
+        .then(data => {
+            const tabla = document.getElementById("tablaHistorial").getElementsByTagName('tbody')[0];
+            
+            data.forEach(partida => {
+                const row = tabla.insertRow();
+                row.innerHTML = `
+                    <td>${partida.partida_id}</td>
+                    <td>${partida.jugadores.join(", ")}</td>
+                    <td>${partida.ganador}</td>
+                    <td>${partida.fecha}</td>
+                `;
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar el historial:', error);
         });
+});

@@ -9,7 +9,7 @@ body {
   background-position: center;
   color: #ffffff;
   background-color: #c59a6d;
-  max-width: 100dvw;
+  width: 100dvw;
   height: 100dvh;
   overflow-x: hidden;
   font-size: 20px;
@@ -21,7 +21,7 @@ body {
   align-items: center;
   background-color: #63402c;
   padding: 20px;
-  height: 15vh;
+  height: auto;
   object-fit: cover;
   flex-wrap: wrap;
   gap: 10px;
@@ -36,7 +36,7 @@ body {
 .img-Usuario {
     display: flex;
     width: 70px;
-    height: 70px;
+    height: auto;
     border-radius: 50%;
     border: 3px solid #5c3a21;
 }
@@ -89,9 +89,7 @@ body {
 .logo-teknova {
   width: 100px;
 }
-/* Fin de Barra superior estilo bases*/
 
-/* Main Inicio */
 main {
   display: flex;
   justify-content: space-evenly;
@@ -114,35 +112,34 @@ main {
   display: flex;
   flex-direction: column;
   background-color: #63402c;
-  padding: 2rem;
+  padding: 1.5rem;
   color: white;
   height: auto;
   border: 6px solid #301f17;
   justify-content: center;
   margin: auto;
+  margin-left: 200px;
 }
 
 .sidebar.active {
   left: 0;
-  top: 10vh;
 }
 
 .toggle-btn.active {
   left: 28vh;
-  top: 50vh;
 }
 
-/* Menu lateral plegable */
+
 .sidebar {
-    margin-top: 10%;
+    margin-top: 17%;
     position: fixed;
-    left: -30vh;  
+    left: -31vh;  
     top: 0;
     border-radius: 12px;
     width: 13.3vw;
     height: 50vh;
-    background-color: #6b543f;
     padding-top: 0px;
+    background-color: #493a2b;
     transition: left 1.5s;
     z-index: 10;
     display: flex;
@@ -174,10 +171,9 @@ main {
     background-color: #724c24;
 }
 
-/*= Botón de menú lateral =*/  /*=Estados activos=*/
 .toggle-btn { 
     position: fixed;
-    top: 45%;
+    top: 50vh;
     left: 0vh;
     transform: translateY(-50%);
     background-color: #25180b;
@@ -190,8 +186,12 @@ main {
     transition: left 1.5s;
     z-index: 11;
 }
-/* Fin de Inicio*/
 
+@media screen and (max-width: 1024px) {
+.toggle-btn.active {
+    left: 16dvh;
+}
+}
 
 @media screen and (max-width: 992px) {
 .logo-central {
@@ -201,7 +201,7 @@ main {
 
 .barra-superior {
   padding: 1%;
-  height: 12vh;
+  height: auto;
   flex-wrap: nowrap;
   gap: 0px;
 }
@@ -237,7 +237,6 @@ main {
   width: 6rem;
 }
 
-/*= Inicio =*/
 .container {
   margin:auto;
   padding: 0.7rem;
@@ -254,9 +253,9 @@ main {
 }
 
 .sidebar {
-  height: 64%;
+  height: 46dvh;
   width: auto;
-  margin-top: 15%;
+  margin-top: 25dvh;
   background-color: #493a2b;
   padding-top: 40px;
 
@@ -278,7 +277,5 @@ main {
 }
 
 }
-/* Fin de Inicio */
-
 
 

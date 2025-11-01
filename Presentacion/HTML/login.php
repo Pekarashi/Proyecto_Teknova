@@ -10,7 +10,7 @@
 </head>
 <body class="inicio">
   <!-- Cabecera -->
-  <?php include_once 'cabecera.php'; ?>
+  <?php include_once '../../Negocio/cabecera.php'; ?>
 
   <!-- Botón toggle (si lo usás) -->
   <button class="toggle-btn" id="toggleBtn">&gt;</button>
@@ -39,5 +39,6 @@
       alert("<?php echo htmlspecialchars($_GET['error']); ?>");
     <?php endif; ?>
   </script>
+  <script src="../JS/idioma.js"></script>
 </body>
 </html>

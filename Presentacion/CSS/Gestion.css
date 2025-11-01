@@ -1,0 +1,88 @@
+.boton {
+    display: flex;
+    font-size: 1dvw;
+    margin-bottom: 1%;
+    width: 11dvw;
+    height: 7dvh;
+    background: #5f3c1a;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 992px) {
+.img-Usuario {
+    width: 15dvw;
+}
+
+.nombre-Usuario {
+    margin-left: 10px;
+    font-size: 4dvw;
+}
+.ajustes, .login {
+    font-size: 4dvw;
+    padding: 4px 16px;
+}
+
+.logo-teknova {
+    width: 22dvw;
+}
+
+.tablero-jugador {
+    margin: 23px auto;
+}
+
+.tablero-jugador .puntos {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.DinoPuntos {
+    font-size: 13px;
+}
+
+.tablero-jugador .recintos {    
+    width: 29dvh;
+    height: 29dvh;
+    margin: 15px;
+}
+
+.toggle-contenedor {
+    margin: auto;
+}
+
+.tablero-jugador .toggleDinos {
+    max-width: 15dvw;
+}
+
+.boton {
+    font-size: 4.5dvw;
+    width: 47dvw;
+    height: 6dvh;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggleDinos2 {
+    width: auto;
+    height: auto;
+    left: auto;
+    right: auto;
+    bottom: -146px;
+}
+}
+
+@media screen and (min-width: 768px) {
+.boton {
+    font-size: 3dvw;
+    width: 31dvw;
+    height: 6dvh;
+    align-items: center;
+    justify-content: center;
+}
+}
